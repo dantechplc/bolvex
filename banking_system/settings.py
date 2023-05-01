@@ -163,8 +163,8 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/static/mediafiles/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "static/mediafiles")
+MEDIA_URL = 'mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.com'
