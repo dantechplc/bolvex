@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+     <!-- Start Breadcrumb
+    ============================================= -->
+    <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'pages/assets/img/banner/10.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1>About Us</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active">About</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+     <!-- Start About
+    ============================================= -->
+    <div class="about-us-area default-padding bg-gray">
+        <div class="container">
+            <div class="about-items">
+                <div class="row align-center">
+                    <div class="col-lg-6">
+                        <div class="thumb">
+                            <img style="width:900px;" src="{% static 'pages/assets/img/team/ceo_sg.jpg' %}" alt="Thumb">
+                            <h2><strong>21</strong> years of <br> working experience</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 info">
+                        <h2>BOLVEX <br> CAPITAL </h2>
+                        <p>
+                            Established in 2001, Bolvex Capital is a leading global independent investment firm with expertise in mergers and acquisitions, capital markets, financial restructurings, BlockChain Investment and valuation advisory. With the head office in  United Kingdom . The Company serves a diverse set of clients including corporations, Individuals, financial sponsors and government agencies worldwide. Bolvex Capital’s financial professionals deliver meaningful and differentiated advice to clients on strategy and financial decisions employing a rigorous analytical approach coupled with deep product and industry expertise. The Company serves clients in three primary business practices: 1) Corporate Finance, encompassing M&A and capital markets advisory, 2) Financial Restructuring: both out-of-court and in formal bankruptcy or insolvency proceedings, and 3) Investment and Valuation Advisory, including financial opinions and a variety of valuation and financial consulting service.
+                        </p>
+                        <ul>
+                            <li>Fast Working Processe</li>
+                            <li>24/7 Live Support</li>
+                        </ul>
+                        <div class="author">
+                            <div class="signature">
+                                <img src="{% static 'pages/assets/img/signature.png' %}" alt="signature">
+                            </div>
+                            <div class="intro">
+                                <h5>Neil James</h5>
+                                <span>C.E.O & Founder Bolvex Capital</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About Area -->
+
+    <!-- Star Work Process Area
+    ============================================= -->
+    <div class="work-process-area features-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h4>See How It Works!</h4>
+                        <h2>Easy steps to get started.</h2>
+                        <div class="devider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="work-process-items features-content">
+                <div class="row">
+                   <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="300ms">
+                        <div class="item">
+                            <i class="flaticon-speech-bubble"></i>
+                            <div class="top">
+                                <span>01</span>
+                                <h4>Open an Account</h4>
+                            </div>
+                            <p>
+                                Create an account with Bolvex Capital to get started.
+                            </p>
+
+                        </div>
+                    </div>
+                    <!-- Single Item -->
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="500ms">
+                        <div class="item">
+                            <i class="flaticon-label"></i>
+                            <div class="top">
+                                <span>02</span>
+                                <h4>Fund your Account</h4>
+                            </div>
+                            <p>
+                                 Fund your account and choose a suitable investment that suits you.
+                            </p>
+
+                        </div>
+                    </div>
+                    <!-- Single Item -->
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6 wow fadeInRight" data-wow-delay="700ms">
+                        <div class="item">
+                            <i class="flaticon-file"></i>
+                            <div class="top">
+                                <span>03</span>
+                                <h4>Financial Growth</h4>
+                            </div>
+                            <p>
+                                 Get your profit of return on investment directly to your E-wallet.
+                            </p>
+
+                        </div>
+                    </div>
+                    <!-- Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Work Process Area -->
+
+    <!-- Start Business Growth
+    ============================================= -->
+    <div class="business-groth-area default-padding bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 info">
+                    <h4>President </h4>
+                    <h2>Message</h2>
+                    <p>
+                        Having invested through many cycles, I've learned that investing success comes from careful evaluation of the market and by selecting and holding quality stocks, never letting headlines or emotion distract from long-term goals.
+                    </p>
+                    <a class="btn btn-gradient effect btn-md" href="/contact">Get free quote</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="lineChart">
+                        <canvas id="lineChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Business Growth -->
+
+    <!-- Star Partner Area
+    ============================================= -->
+    <div class="partner-area overflow-hidden bg-gray text-light">
+        <div class="container">
+            <div class="item-box">
+                <div class="row align-center">
+                    <div class="col-lg-6 info">
+                         <h2>We're Trusted by <span>2500+</span> <br> Investors and Business Partners</h2>
+                        <p>
+                            Our business partners and investors population have grown over the years due to our stability in maintaing good busines relationship.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Partner Area -->
+
+    <!-- Star Team Area
+    ============================================= -->
+    <div class="team-area default-padding bottom-less">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h4>Executive Board</h4>
+                        <h2>Meet our experts</h2>
+                        <div class="devider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="team-items text-center">
+                <div class="row">
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                                <img src="{% static 'pages/assets/img/team/ceo_sg.jpg' %}" alt="Thumb">
+                                <div class="social">
+                                    <a href="#" class="share-icon facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="share-icon twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="share-icon instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <div class="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="content">
+                                    <h4><a href="#">Neil James</a></h4>
+                                    <span>Chief Executive Oficer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                                <img src="{% static 'pages/assets/img/team/vp_sg.jpg' %}" alt="Thumb">
+                                <div class="social">
+                                    <a href="#" class="share-icon facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="share-icon twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="share-icon instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <div class="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="content">
+                                    <h4><a href="#">Darcy Daniel</a></h4>
+                                    <span>Vice President</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="single-item col-lg-4 col-md-6">
+                        <div class="item">
+                            <div class="thumb">
+                                <img src="{% static 'pages/assets/img/team/io_sg.jpg' %}" alt="Thumb">
+                                <div class="social">
+                                    <a href="#" class="share-icon facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="share-icon twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="share-icon instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                                <div class="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="content">
+                                    <h4><a href="#">Rob Coursey</a></h4>
+                                    <span>Investment Officer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Team Area -->
+{% endblock content %}

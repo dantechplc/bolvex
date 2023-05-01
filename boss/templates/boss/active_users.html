@@ -1,0 +1,88 @@
+{% extends 'boss/base.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- Page Content  -->
+
+ <div id="content-page" class="content-page">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-12">
+                  <div class="iq-card">
+                     <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                           <h4 class="card-title">Active Clients</h4>
+                        </div>
+                     </div>
+                     <div class="iq-card-body">
+                        <div class="table-responsive">
+                           <div class="row justify-content-between">
+                              <div class="col-sm-12 col-md-6">
+                                 <div id="user_list_datatable_info" class="dataTables_filter">
+
+                                 </div>
+                              </div>
+
+
+                           </div>
+                           <table id="user-list-table" class="table table-striped table-bordered mt-4" role="grid" aria-describedby="user-list-page-info">
+                             <thead>
+                                 <tr>
+
+                                    <th>Username</th>
+                                    <th>Contact</th>
+                                    <th>Email</th>
+                                    <th>Country</th>
+                                    <th>Status</th>
+                                    <th>Join Date</th>
+                                    <th>Action</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                             {% for active_user in active_user %}
+                                 <tr>
+
+                                    <td>{{active_user.username}}</td>
+                                    <td>{{active_user.account.phone_number}}</td>
+                                    <td>{{active_user.email}}</td>
+                                    <td>{{active_user.account.country.name}}</td>
+                                     <td> {% if active_user.account.Verification_status == "Unverified" %}
+                                       <div class="badge badge-pill badge-danger">{{active_user.account.Verification_status}}</div>
+                                         {% elif active_user.account.Verification_status == "Verified" %}
+                                       <div class="badge badge-pill badge-primary">{{active_user.account.Verification_status}}</div>
+                                       {% elif active_user.account.Verification_status == "Under Review" %}
+                                       <div class="badge badge-pill badge-warning">{{active_user.account.Verification_status}}</div>
+                                       {% endif %}</td>
+
+                                    <td>{{active_user.account.date_joined|date}}</td>
+                                    <td>
+                                       <div class="flex align-items-center list-user-action">
+
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="/client_edit/{{active_user.account.id}}"><i class="ri-pencil-line"></i></a>
+
+                                       </div>
+                                    </td>
+                                 </tr>
+                              {% endfor %}
+                             </tbody>
+                           </table>
+                        </div>
+                           <div class="row justify-content-between mt-3">
+
+                              <div class="col-md-6">
+
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+
+      <!-- Wrapper END -->
+      <!-- Wrapper END -->
+
+
+{% endblock content %}

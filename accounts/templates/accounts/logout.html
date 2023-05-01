@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<html lang="en" dir="ltr">
+ <head>
+         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>DAN LOGISTIC EXPRESS</title>
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/logo/id.png' %}">
+        <link rel="stylesheet" href="{% static 'assets/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+        <!--===============================================================================================-->
+<!--	    <link rel="icon" type="image/png" href="{% static 'assets/images/icons/favicon.ico' %}"/>-->
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	    <link rel="stylesheet" type="text/css" href="{% static 'assets/fonts1/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	    <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	    <link rel="stylesheet" type="text/css" href="{% static 'assets/css2/util.css' %}">
+	    <link rel="stylesheet" type="text/css" href="{% static 'assets/css2/main.css' %}">
+    </head>
+
+<body>
+
+<!--    <nav class="navbar navbar-light navbar-expand-md" style="background-color: #020121;">-->
+<!--		<div class="container-fluid"><a href="/index"><img src="{% static 'assets/img/logo/logo.png' %}"></a><button data-toggle="collapse" class="navbar-toggler tada animated" data-target="#navcol-1" style="background-color: rgba(1,0,16,0);"><span class="sr-only">Toggle navigation</span><i class="fa fa-navicon jello animated" style="color: rgba(17,218,194,0.94);"></i></button>-->
+<!--            <div-->
+<!--                class="collapse navbar-collapse" id="navcol-1">-->
+<!--                <ul class="nav navbar-nav ml-auto">-->
+<!--                    <li class="nav-item" role="presentation"><a class="nav-link" href="/login"><button class="btn btn-primary border rounded border-dark" data-bs-hover-animate="wobble" type="button" style="background-color: rgba(5,238,154,0.61);">LOGIN</button></a></li>-->
+<!--                	<li class="nav-item" role="presentation"><a class="nav-link" href="/signup"><button class="btn btn-primary border rounded border-dark" data-bs-hover-animate="wobble" type="button" style="background-color: rgba(5,238,154,0.61);">SIGN UP</button></a></li>-->
+<!--				</ul>-->
+<!--        	</div>-->
+<!--        </div>-->
+<!--    </nav>-->
+
+ <!-- Sign up form -->
+		<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+                <h3 style="color:green;">
+                      You've successfully logged out! .
+                 </h3>
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="{% static 'assets/images/img-01.png' %}" alt="IMG">
+                    <img src="{% static 'assets/images/logout_img.png' %}" >
+
+				</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'assets/js1/main.js' %}"></script>
+            </div>
+        </div>
+        </div>
+</body>
+
+
+{% endblock content %}
+  </body>
+</html>

@@ -1,0 +1,190 @@
+{% extends 'ds/base.html' %}
+{% load static %}
+{% block content %}
+ <style>
+    	.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
+    color: #383a59;
+}
+		.eth:after {
+   content: url('https://api.iconify.design/fa-solid/home.svg?color=%23ba3329&height=16');
+}
+.pseudo-test:after {
+   content: url('https://api.iconify.design/cryptocurrency/eth.svg');
+   vertical-align: -0.125em;
+}
+.bn:after {
+  content: url('https://api.iconify.design/cryptocurrency/bnb.svg');
+   vertical-align: -0.125em;
+}
+.xr:after {
+  content: url('https://api.iconify.design/cryptocurrency/xrp.svg');
+   vertical-align: -0.125em;
+}
+.us:after {
+  content: url('https://api.iconify.design/cryptocurrency/usdt.svg');
+   vertical-align: -0.125em;
+}
+.av:after {
+  content: url('https://api.iconify.design/cryptocurrency/aave.svg');
+   vertical-align: -0.125em;
+}
+.lc:after {
+  content: url('https://api.iconify.design/cryptocurrency/ltc.svg');
+   vertical-align: -0.125em;
+}
+.background-test {
+   display: inline-block;
+   width: 1em;
+   height: 1em;
+   vertical-align: -0.125em;
+   background: url('https://api.iconify.design/bi/bell-fill.svg') no-repeat
+       center center / contain;
+}
+      </style>
+
+ <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+
+                 <div class="container-fluid mt-3">
+
+                  <div class="row">
+                	 <div class="col-12">
+                        <div class="card card-widget">
+                            <div class="card-body gradient-3">
+                                <div class="media">
+                                    <span class="card-widget__icon"><i class="icon-wallet"></i></span>
+                                    <div class="media-body">
+                                        <h2 class="card-widget__title">Wallet Balance</h2>
+                                        <h5 class="card-widget__subtitle"><span style="font-size:15.0pt">$10,000</span></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <span class="display-5"><i class="fa fa-xl fa-money color-teal gradient-3-text"></i></span>
+                                    <h2 class="mt-3">Fund your Wallet</h2>
+                                    <p>Credit your wallet. Choose your prefered payment wallet </p>
+
+                                </div>
+                                 <h4 class="card-title ">Payment Method</h4>
+                                <div class="container">
+								    <div class="row">
+								        <div class="col-lg-12">
+								        <form action="" method="POST">
+                                                {% csrf_token %}
+								            <select name="payment_method" required="" id="" data-show-content="true" class="col-lg-12 selectpicker ">
+
+								                <option>Select..</option>
+
+								                <option  value="BTC" data-content="<i class='fa fa-bitcoin '></i> BTC"></option>
+
+								                <option value="ETH" data-content="<i class='pseudo-test'></i> ETH"></span></option>
+								                <option value="BNB" data-content="<i class='bn'></i>BNB"></option>
+
+								                <option value="USDT" data-content="<i class='us'></i> USDT"></option>
+
+
+								            </select>
+
+								        </div>
+                                        <br><br><br>
+								    <h4>Preferred Platform</h4>
+                                        {{form.preferred_platform}}
+								     <div class="col-lg-12">
+
+<!--								            <select  name="preferred_platform" required="" id="" data-show-content="true" class="col-lg-12 selectpicker ">-->
+
+<!--								                <option>Select..</option>-->
+<!--								                <option  value="Binance" data-content=" Binance"></option>-->
+<!--                                                <option  value="Coinbase" data-content=" Coinbase">-->
+<!--                                                <option  value="Bitzt" data-content=" Bitzt">-->
+<!--                                                <option  value="Others" data-content=" Others"></option>-->
+
+
+
+<!--								            </select>-->
+
+                                        <br><br>
+                                        <div class="text-center">
+                                    <span class="display-5"><i class="color-teal gradient-3-text"></i></span>
+                                            <button type="submit" class="btn gradient-4 btn-lg border-0 btn-rounded px-5 " >Fund Now</button>
+
+
+                                </div></form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <!-- /# column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <h4>Recent Transactions</h4>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+
+                                               <th>Transaction_ID</th>
+                                                <th>Date</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for transaction in transaction %}
+                                            <tr>
+                                                {% if transaction.get_transaction_type_display  == 'Withdrawal' %}
+                                                <td>{{ transaction.get_transaction_type_display }} {{transaction.trx_code}}</td>
+                                                {% endif %}
+                                               <td>{{ transaction.date }}</td>
+								<td><span></span> {{ transaction.amount }}</td>
+								{% if transaction.status == 'failed' %}
+									<td><span class="badge badge-danger px-2">{{ transaction.status }}</span></td>
+								{% elif transaction.status == 'pending' %}
+									<td><span class="badge badge-warning px-2">{{ transaction.status }}</span></td>
+								{% elif transaction.status == 'Successful' %}
+									<td><span class="badge badge-success px-2">{{ transaction.status }}</span></td>
+								{% elif transaction.status == 'Received' %}
+									<td><span class="badge badge-success">{{ transaction.status }}</span></td>
+								{% elif transaction.status == 'Expired' %}
+									<td><span class="badge badge-danger">{{ transaction.status }}</span></td>
+								{% else %}
+									<td><span class="badge badge-info">{{ transaction.status }}</span></td>
+								{% endif %}
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <!-- /# card -->
+
+
+
+{% endblock content %}
+
+
+
+

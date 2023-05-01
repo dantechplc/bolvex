@@ -1,0 +1,132 @@
+{% extends 'boss/base.html' %}
+{% load static %}
+{% block content %}
+
+
+ <!-- Page Content  -->
+
+ <div id="content-page" class="content-page">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-sm-12">
+                  <div class="iq-card">
+                     <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                           <h4 class="card-title">Pending Deposits</h4>
+                        </div>
+                     </div>
+                     <div class="iq-card-body">
+                        <div class="table-responsive">
+                           <div class="row justify-content-between">
+                              <div class="col-sm-12 col-md-6">
+                                 <div id="user_list_datatable_info" class="dataTables_filter">
+
+                                 </div>
+                              </div>
+
+
+                           </div>
+
+                           <table id="user-list-table" class="table table-striped table-bordered mt-4" role="grid" aria-describedby="user-list-page-info">
+                             <thead>
+                                 <tr>
+
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Amount </th>
+
+                                    <th>Trx_ID</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                             {% for client in users %}
+                                 <tr>
+
+                                    <td>{{client.account.user.username}}</td>
+                                    <td>{{client.account}}</td>
+                                    <td>{{client.amount}}</td>
+
+                                    <td>{{client.trx_code}}</td>
+
+                                    <td> {% if client.status == "Expired" %}
+                                       <div class="badge badge-pill badge-danger">{{client.status}}</div>
+                                         {% elif client.status == "Active" %}
+                                       <div class="badge badge-pill badge-primary">{{client.status}}</div>
+                                       {% elif client.status == "pending" %}
+                                       <div class="badge badge-pill badge-warning">{{client.status}}</div>
+                                       {% endif %}</td>
+
+                                    <td>{{client.timestamp|date}}</td>
+                                    <td>
+                                       <div class="flex align-items-center list-user-action">
+
+                                         <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="/dep_pro/{{client.id}}"><i class="ri-pencil-line"></i></a>
+
+                                       </div>
+                                    </td>
+                                 </tr>
+                              {% endfor %}
+                             </tbody>
+                           </table>
+                        </div>
+                           <div class="row justify-content-between mt-3">
+
+                              <div class="col-md-6">
+                                <!--Pagination-->
+
+                                <!--Pagination-->
+                                    <nav aria-label="Page navigation example">
+                                      <ul class="pagination justify-content-center">
+                                        {% if users.has_previous %}
+                                          <li class="page-item">
+                                            <a class="page-link" href="?page={{ users.previous_page_number }}">Previous</a>
+                                          </li>
+                                        {% else %}
+                                          <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Previous</a>
+                                          </li>
+                                        {% endif %}
+                                        {% for i in users.paginator.page_range %}
+                                          {% if users.number == i %}
+                                            <li class="page-item active" aria-current="page">
+                                              <span class="page-link">
+                                                {{ i }}
+                                                <span class="sr-only">(current)</span>
+                                              </span>
+                                            </li>
+                                          {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                          {% endif %}
+                                        {% endfor %}
+                                        {% if users.has_next %}
+                                          <li class="page-item">
+                                            <a class="page-link" href="?page={{ users.next_page_number }}">Next</a>
+                                          </li>
+                                        {% else %}
+                                          <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">Next</a>
+                                          </li>
+                                        {% endif %}
+                                      </ul>
+                                    </nav>
+                                    <!--end of Pagination-->
+
+
+                                                              </div>
+                           </div>
+                     </div>
+                  </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+
+      <!-- Wrapper END -->
+      <!-- Wrapper END -->
+
+
+{% endblock content %}

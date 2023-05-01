@@ -1,0 +1,115 @@
+{% load static %}
+
+<div id="sidebar-scrollbar">
+               <nav class="iq-sidebar-menu">
+                  <ul id="iq-sidebar-toggle" class="iq-menu">
+                     <li class="active" >
+                        <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="{% url 'boss:boss' %}"><i class="las la-laptop-code"></i>Account Dashboard</a></li>
+
+                        </ul>
+                     </li>
+
+                     <li>
+                        <a href="#icons" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="ri-send-plane-line iq-arrow-left"></i><span>Admin Email</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="icons" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                        <li ><a href="{% url 'boss:admin_email' %}"><i class="las la-plus-circle"></i>Send Email</a></li>
+
+                           <li><a href="{% url 'boss:admin_email_group' %}"><i class="las la-th-list"></i>Send Email to all Client</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Clients</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+
+
+                           <li><a href="{% url 'boss:client_list' %}"><i class="las la-th-list"></i>User List</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#info" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-users iq-arrow-left"></i><span>Subscribers</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="info"  class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+
+
+                           <li><a href="{% url 'boss:active_sub' %}"><i class="las la-th-list"></i>Active Subscribers</a></li>
+                        </ul>
+                     </li>
+
+
+
+                     <li>
+                        <a href="#menu-level" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-exchange-dollar-fill iq-arrow-left"></i><span>Transactions</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="menu-level" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="{% url 'boss:create_trx' %}"><i class="ri-table-line"></i>Create Transaction</a></li>
+                           <li><a href="{% url 'boss:dep_trx' %}"><i class="ri-table-line"></i>Deposit</a></li>
+                           <li><a href="{% url 'boss:with_trx' %}"><i class="ri-database-line"></i>Withdrawals</a></li>
+                           <li><a href="{% url 'boss:inv_trx' %}"><i class="ri-refund-line"></i>Investments</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#tables" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-wallet-3-line iq-arrow-left"></i><span>Wallet</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="tables" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="{% url 'boss:wallet_upload' %}"><i class="ri-table-line"></i>Admin Wallets</a></li>
+                        </ul>
+                     </li>
+                       <li>
+                        <a href="{% url 'boss:admin_logout' %}" class="iq-waves-effect collapsed"  aria-expanded="false"><i class="ri-shut-down-line iq-arrow-left"></i><span>Logout</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                     </li>
+
+                  </ul>
+               </nav>
+               <div class="p-3"></div>
+            </div>
+         </div>
+         <!-- TOP Nav Bar -->
+         <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+               <nav class="navbar navbar-expand-lg navbar-light p-0">
+                  <div class="iq-menu-bt d-flex align-items-center">
+                     <div class="wrapper-menu">
+                        <div class="main-circle"><i class="ri-menu-line"></i></div>
+                        <div class="hover-circle"><i class="ri-close-fill"></i></div>
+                     </div>
+                     <div class="iq-navbar-logo d-flex justify-content-between ml-3">
+                        <a href="{% url 'boss:boss' %}" class="header-logo">
+                        <img style="width:150px; height:70px;" src="{% static 'ds/images/bvlx_n.png' %}" class="img-fluid rounded" alt="">
+                        <span></span>
+                        </a>
+                     </div>
+                  </div>
+
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                  </div>
+                  <ul class="navbar-list">
+                     <li class="line-height">
+                        <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
+                           <img style="width:50px;" src="{% static 'ds/images/bvlx_n.png' %}" class="img-fluid rounded mr-3" alt="admin">
+                           <div class="caption">
+                              <h6 class="mb-0 line-height">Admin</h6>
+                              <p class="mb-0">Manager</p>
+                           </div>
+                        </a>
+                        <div class="iq-sub-dropdown iq-user-dropdown">
+                           <div class="iq-card shadow-none m-0">
+                              <div class="iq-card-body p-0 ">
+                                 <div class="bg-primary p-3">
+                                    <h5 class="mb-0 text-white line-height">FOX Admin</h5>
+                                    <span class="text-white font-size-12">Online</span>
+                                 </div>
+
+                                 <div class="d-inline-block w-100 text-center p-3">
+                                    <a class="bg-primary iq-sign-btn" href="{% url 'boss:admin_logout' %}" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+         <!-- TOP Nav Bar END -->
