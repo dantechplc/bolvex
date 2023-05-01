@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'po0172$69b@78ps4v^uhfxu6q--8ko7kpp7rbz420s_3w#sir%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # 192.168.43.147
 # 192.168.169.83
 ALLOWED_HOSTS = ["*"]
@@ -148,23 +148,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static")
-# ]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "static")
+]
 # #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #
-# MEDIA_URL = '/mediafiles/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "/mediafiles")
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "/mediafiles")
 
 
 # for production
-STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-MEDIA_URL = 'mediafiles/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+# STATIC_URL = '/static/'
+#
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#
+# MEDIA_URL = 'mediafiles/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.com'
