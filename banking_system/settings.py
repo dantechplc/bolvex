@@ -25,7 +25,7 @@ SECRET_KEY = 'po0172$69b@78ps4v^uhfxu6q--8ko7kpp7rbz420s_3w#sir%'
 DEBUG = True
 # 192.168.43.147
 # 192.168.169.83
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["13.50.108.217", "bolvexcapital.com", "www.bolvexcapital.com"]
 
 # Application definition
 
@@ -97,7 +97,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # 'pages.context_processors.company'
+                'pages.context_processors.company'
             ],
         },
     },
@@ -150,13 +150,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 # STATICFILES_DIRS = [
 #    os.path.join(BASE_DIR, "static")
 # ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #
-MEDIA_URL = 'mediafiles/'
+MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
 
