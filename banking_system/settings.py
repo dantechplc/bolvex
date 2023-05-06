@@ -174,7 +174,7 @@ DEFAULT_FROM_EMAIL = 'BolvexCapital@bolvexcapital.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'BolvexCapital@bolvexcapital.com'
-EMAIL_HOST_PASSWORD = 'D@ntech3668'
+EMAIL_HOST_PASSWORD = 'lnM!ot3w'
 LOGIN_REDIRECT_URL = 'transaction:dashboard'
 
 COMPANY_ID = 1
