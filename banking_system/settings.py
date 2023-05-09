@@ -170,7 +170,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.com'
-DEFAULT_FROM_EMAIL = 'BolvexCapital<BolvexCapital@bolvexcapital.com>'
+DEFAULT_FROM_EMAIL = 'BolvexCapital<support@bolvexcapital.com>'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'BolvexCapital@bolvexcapital.com'
