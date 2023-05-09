@@ -173,8 +173,8 @@ EMAIL_HOST = 'smtp.zoho.com'
 DEFAULT_FROM_EMAIL = 'BolvexCapital<support@bolvexcapital.com>'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'BolvexCapital@bolvexcapital.com'
-EMAIL_HOST_PASSWORD = 'lnM!ot3w'
+EMAIL_HOST_USER = 'support@bolvexcapital.com'
+EMAIL_HOST_PASSWORD = 'lnM!ot33'
 LOGIN_REDIRECT_URL = 'transaction:dashboard'
 
 COMPANY_ID = 1
