@@ -78,9 +78,10 @@ def signup(request, *args, **kwargs):
 
             current_site = get_current_site(request)
             mail_subject = 'Activate your account.'
+            company =  CompanyProfile.objects.get(id=settings.COMPANY_ID)
             message = render_to_string('accounts/acc_active_email1.html', {
-                'user': user,
-                'company': CompanyProfile.objects.get(id=settings.COMPANY_ID),
+                'user': user.username,
+                'company_address':company.company_address,
                 'domain': current_site.domain,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': default_token_generator.make_token(user),
