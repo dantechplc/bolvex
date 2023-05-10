@@ -56,6 +56,7 @@ def daily_roi():
 
 
 def investment_expired_check():
+    print('Checking ....')
     qs = Investment_profile.objects.filter(expired=False, status='Active')
     for doc in qs:
         expected_amount = doc.expected_roi
