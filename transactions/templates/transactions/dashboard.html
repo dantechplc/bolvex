@@ -1,91 +1,11 @@
 {% extends 'ds/base.html' %}
 {% load static %}
 {% block content %}
- <style>
-    	.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
-    color: #383a59;
-}
-		.eth:after {
-   content: url('https://api.iconify.design/fa-solid/home.svg?color=%23ba3329&height=16');
-}
-.pseudo-test:after {
-   content: url('https://api.iconify.design/cryptocurrency/eth.svg');
-   vertical-align: -0.125em;
-}
-.bn:after {
-  content: url('https://api.iconify.design/cryptocurrency/bnb.svg');
-   vertical-align: -0.125em;
-}
-.xr:after {
-  content: url('https://api.iconify.design/cryptocurrency/xrp.svg');
-   vertical-align: -0.125em;
-}
-.us:after {
-  content: url('https://api.iconify.design/cryptocurrency/usdt.svg');
-   vertical-align: -0.125em;
-}
-.av:after {
-  content: url('https://api.iconify.design/cryptocurrency/aave.svg');
-   vertical-align: -0.125em;
-}
-.lc:after {
-  content: url('https://api.iconify.design/cryptocurrency/ltc.svg');
-   vertical-align: -0.125em;
-}
-.background-test {
-   display: inline-block;
-   width: 1em;
-   height: 1em;
-   vertical-align: -0.125em;
-   background: url('https://api.iconify.design/bi/bell-fill.svg') no-repeat
-       center center / contain;
-}
-      </style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-
-   google.charts.load('current', {'packages':['gauge']});
-   google.charts.setOnLoadCallback(drawChart);
-
-   function drawChart() {
-
-     var data = google.visualization.arrayToDataTable([
-       ['Label', 'Value'],
-       ['Power', 80],
-       ['Miner', 55],
-       ['Network', 68]
-
-     ]);
-
-     var options = {
-       width: 400, height: 120,
-       redFrom: 90, redTo: 100,
-       yellowFrom:75, yellowTo: 90,
-       minorTicks: 5
-     };
-
-     var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-     chart.draw(data, options);
-
-     setInterval(function() {
-       data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-       chart.draw(data, options);
-     }, 13000);
-     setInterval(function() {
-       data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-       chart.draw(data, options);
-     }, 5000);
-     setInterval(function() {
-       data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-       chart.draw(data, options);
-     }, 26000);
-   }
- </script>
 <script>
 {% block jquery %}
-var endpoint = '/api/data'
+var endpoint = '{% url 'transaction:api-data' %}'
 var Deposit = []
 var Withdrawal = []
 var labels = [];
@@ -105,7 +25,7 @@ $.ajax({
             labels:labels,
             datasets: [
                {
-                  label: "Investment volume ($)",
+                  label: "Amount Earned ($)",
                   backgroundColor: "#79AEC8",
                   borderColor: "#FFA500",
                   data: deposit,
@@ -124,7 +44,7 @@ $.ajax({
 
             },
             title: {
-               text: "Transaction Volume ",
+               text: "Investment Volume ",
                display: true
             }
          }
@@ -139,9 +59,8 @@ $.ajax({
 }
 )
 
+{% endblock jquery %}
 
-
-{% endblock %}
 </script>
 
 
@@ -156,17 +75,17 @@ $.ajax({
 
           {% endfor %}
 
-       {% if request.user.account.Verification_status == "Unverified" %}
-        <div class="col-lg-12 alert alert-danger alert-dismissible fade show">
-                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                           </button> <strong>Verify your Account! click <a href="/verification"> Here </a> to verify </strong>  <span></span> </div>
-       {% endif %}
-       {% if  request.user.account.Verification_status == "Under Review" %}
-            <div class="col-lg-12 alert alert-warning alert-dismissible fade show">
-                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                           </button> <strong> Account Under Review !</strong></div>
+          {% if request.user.account.Verification_status == "Unverified" %}
+           <div class="col-lg-12 alert alert-danger alert-dismissible fade show">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button> <strong>Verify your Account! click <a href="/verification"> Here </a> to verify </strong>  <span></span> </div>
+          {% endif %}
+          {% if  request.user.account.Verification_status == "Under Review" %}
+               <div class="col-lg-12 alert alert-warning alert-dismissible fade show">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button> <strong> Account Under Review !</strong></div>
+          {% endif %}
 
-        {% endif %}
          <div class="col-lg-6">
             <div class="row">
                <div class="col-md-6">
@@ -176,7 +95,7 @@ $.ajax({
                            <h5>Current Balance</h5>
                            <span class="badge badge-primary">USD</span>
                         </div>
-                        <h3><span class="">{{balance}}</span></h3>
+                        <h3><span class="">{{request.user.client_account.main_balance}}</span></h3>
                         <div class="d-flex align-items-center justify-content-between mt-1">
                            <p class="mb-0">Last Deposit</p>
                            <span class="text-primary">{{date|date}}</span>
@@ -189,7 +108,7 @@ $.ajax({
                   <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                      <div class="iq-card-body">
                         <div class="top-block d-flex align-items-center justify-content-between mt-1">
-                           <h5>Total Amount Invested</h5>
+                           <h5>Total Investment</h5>
                            <span class="badge badge-primary">USD</span>
                         </div>
                         <h3><span class="">{{request.user.client_account.total_amount_investment}}</span></h3>
@@ -204,13 +123,13 @@ $.ajax({
                   <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                      <div class="iq-card-body">
                         <div class="top-block d-flex align-items-center justify-content-between mt-1">
-                           <h5>Total ROI</h5>
+                           <h5>ROI Balance</h5>
                            <span class="badge badge-primary">USD</span>
                         </div>
-                        <h3><span class="">{{request.user.client_account.roi_balance}}</span></h3>
+                        <h3><span class="">{{request.user.client_account.total_expected_roi}}</span></h3>
                         <div class="d-flex align-items-center justify-content-between mt-1">
-                           <p class="mb-0">Refferal Bonus</p>
-                           <span class="text-primary">{{bonus}}</span>
+                           <p class="mb-0">Referral Bonus</p>
+                           <span class="text-primary">{{request.user.client_account.bonus}}</span>
                         </div>
                      </div>
                   </div>
@@ -236,7 +155,7 @@ $.ajax({
                <div class="col-md-12 box">
                   <div class="box-body">
                      <div class="position-relative">
-                                                <!-- TradingView Widget BEGIN -->
+                       <!-- TradingView Widget BEGIN -->
                         <div class="tradingview-widget-container">
                           <div class="tradingview-widget-container__widget"></div>
                           <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">BTCUSDT rates</span></a> by TradingView</div>
@@ -263,6 +182,8 @@ $.ajax({
                   </div>
                </div>
 
+
+
             </div>
 
          </div>
@@ -280,11 +201,11 @@ $.ajax({
             <!-- TradingView Widget BEGIN -->
             <div class="tradingview-widget-container">
                <div class="tradingview-widget-container__widget"></div>
-               <div class="tradingview-widget-copyright"><a href="#" rel="noopener" target="_blank"><span class="blue-text">Exchange Rates</span></a> by Foxcapitals</div>
+               <div class="tradingview-widget-copyright"><a href="#" rel="noopener" target="_blank"><span class="blue-text">Exchange Rates</span></a> by Bolvex Capital</div>
                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
                {
                "width": "100%",
-               "height": "100%",
+               "height": "400",
                "currencies": [
                "EUR",
                "USD",
@@ -296,7 +217,7 @@ $.ajax({
             }
                </script>
             </div>
-
+            <!-- TradingView Widget END -->
             </div>
          </div>
 
@@ -311,18 +232,19 @@ $.ajax({
                   </div>
                </div>
                <div class="iq-card-body">
-                  <img class="img-fluid rounded mx-auto d-block" src="{% static 'email/referral.png' %}">
+                  <img class="img-fluid rounded mx-auto d-block" src="{% static 'referral.png' %}">
                   <p class="text-center">Earn 10% on referral commision!</p>
 
                   <div class="form-horizontal" >
                      <div class="form-group row">
                         <br><label class="control-label col-sm-2 align-self-center mb-0" for="email">Referral link:</label>
                         <div class="col-sm-10" data-clipboard-target="#refUrl" data-success="Copied" data-text="Copy Link"><em class="clipboard-icon icon ">
-                           <input type="text" class="form-control" readonly="" id="myInput" value="https://foxcapitals.com/signup/{{code}}">
+                           <input type="text" class="form-control" readonly="" id="myInput" value="https://{{ domain }}/signup/{{code}}">
                         </div>
                      </div>
                      <button type="button"  class="btn-primary btn mb-1 "     onclick="myFunction()">Copy
-                        <span class="tooltiptext" id="myTooltip"></span></button>
+                        <span class="tooltiptext" id="myTooltip"></span>
+                     </button>
 
                      </div>
                </div>
@@ -355,8 +277,6 @@ $.ajax({
                         <th scope="col">Date</th>
                         <th scope="col">Date</th>
                         <th scope="col">Status</th>
-
-
                      </tr>
                   </thead>
                   <tbody>
@@ -367,22 +287,21 @@ $.ajax({
                        {% else %}
                        <td>{{ transaction.get_transaction_type_display }} {{transaction.trx_code}}</td>
                       {% endif %}
-
-                        <td>{{ transaction.date }}</td>
- <td><span></span> {{ transaction.amount }}</td>
- {% if transaction.status == 'failed' %}
-    <td><span class="badge badge-danger px-2">{{ transaction.status }}</span></td>
- {% elif transaction.status == 'pending' %}
-    <td><span class="badge badge-warning px-2">{{ transaction.status }}</span></td>
- {% elif transaction.status == 'Successful' %}
-    <td><span class="badge badge-success px-2">{{ transaction.status }}</span></td>
- {% elif transaction.status == 'Received' %}
-    <td><span class="badge badge-success">{{ transaction.status }}</span></td>
- {% elif transaction.status == 'Expired' %}
-    <td><span class="badge badge-danger">{{ transaction.status }}</span></td>
- {% else %}
-    <td><span class="badge badge-info">{{ transaction.status }}</span></td>
- {% endif %}
+                     <td>{{ transaction.date }}</td>
+                     <td><span></span> {{ transaction.amount }}</td>
+                     {% if transaction.status == 'failed' %}
+                        <td><span class="badge badge-danger px-2">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'pending' %}
+                        <td><span class="badge badge-warning px-2">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'Successful' %}
+                        <td><span class="badge badge-success px-2">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'Received' %}
+                        <td><span class="badge badge-success">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'Expired' %}
+                        <td><span class="badge badge-danger">{{ transaction.status }}</span></td>
+                     {% else %}
+                        <td><span class="badge badge-info">{{ transaction.status }}</span></td>
+                     {% endif %}
 
                      </tr>
                  {% endfor %}
@@ -420,4 +339,4 @@ $.ajax({
       }
       </script>
 
-{% endblock content %}
+{% endblock  %}
