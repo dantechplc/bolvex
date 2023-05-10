@@ -53,7 +53,7 @@ INSTALLED_APPS = [
 ]
 
 CRONJOBS = [
-    ('10 13 * * *', 'transactions.cron.calculate_interest', '>> /var/log/crontask.log 2>&1'),
+    ('10 13 * * *', 'transactions.cron.daily_roi', '>> /var/log/crontask.log 2>&1'),
     ('* * * * *', 'transactions.cron.investment_expired_check', '>> /var/log/cronexp_dte.log 2>&1')
 ]
 

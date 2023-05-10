@@ -292,11 +292,11 @@ def daily_roi():
 
 
 def investment_expired_check():
-    today = timezone.now().strftime('%Y-%m-%d')
-    qs = Investment_profile.objects.filter(expired=False)
+    qs = Investment_profile.objects.filter(expired=False, status='Active')
     for doc in qs:
-        exp = doc.expiry_date.strftime('%Y-%m-%d')
-        if exp < today:
+        expected_amount = doc.expected_roi
+        amount_earned = doc.amount_earned
+        if amount_earned > expected_amount:
             doc.expired = True
             doc.status = 'Expired'
             doc.save()
