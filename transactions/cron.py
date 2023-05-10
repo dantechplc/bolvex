@@ -60,7 +60,7 @@ def investment_expired_check():
     for doc in qs:
         expected_amount = doc.expected_roi
         amount_earned = doc.amount_earned
-        if amount_earned > expected_amount:
+        if amount_earned >= expected_amount:
             doc.expired = True
             doc.status = 'Expired'
             doc.save()
