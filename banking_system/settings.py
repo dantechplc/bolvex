@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'transactions',
     'pages',
     'imagekit',
-    'django_crontab',
+    #'django_crontab',
 ]
 
 CRONJOBS = [
@@ -158,13 +158,7 @@ MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
 
-# for production
-# STATIC_URL = '/static/'
-#
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-#
-# MEDIA_URL = 'mediafiles/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.com'
