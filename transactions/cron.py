@@ -53,8 +53,8 @@ def daily_roi():
                     email.attach_alternative(message1, 'text/html')
                     email.content_subtype = 'html'
                     email.mixed_subtype = 'related'
-                    print('Roi email sent successfully')
                     email.send()
+                    print('Roi email sent successfully')
 
 
 def investment_expired_check():
