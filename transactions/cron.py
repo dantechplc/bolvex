@@ -37,7 +37,7 @@ def daily_roi():
 
                     # ROI email
                     mail_subject = "INVESTMENT INTEREST"
-                    to_email = str(email)
+                    to_email = str(investment.user)
                     message1 = render_to_string('boss/emailroi.html', {
 
                         'amount': interest,
