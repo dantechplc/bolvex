@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'transactions',
     'pages',
     'imagekit',
-    'django_cront ab',
+    'django_crontab',
 ]
 
 CRONJOBS = [
