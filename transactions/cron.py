@@ -15,6 +15,7 @@ def daily_roi():
 
     today = timezone.now()
     investments = Investment_profile.objects.filter(status='Active')
+    print("active investment", investments)
     if investments is not None:
         for investment in investments:
             date = investment.next_payout
