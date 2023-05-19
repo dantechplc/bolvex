@@ -8,7 +8,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
 
-print("Cron job is running ....")
+
 
 
 def daily_roi():
@@ -19,41 +19,42 @@ def daily_roi():
         for investment in investments:
             date = investment.next_payout
             if date <= today:
-                accounts = Investment_profile.objects.get(user=investment.user)
-                interest = accounts.earning
-                client_acct = Account.objects.get(user=investment.user)
-                bal = client_acct.roi_balance
-                new_bal = bal + interest
-                total_roi_received = client_acct.total_roi_received + interest
-                cl = Account.objects.filter(user=investment.user)
-                cl.update(roi_balance=new_bal, total_roi_received=total_roi_received)
+                accounts = Investment_profile.objects.filter(user=investment.user)
+                for user in accounts:
+                    interest = user.earning
+                    client_acct = Account.objects.get(user=investment.user)
+                    bal = client_acct.roi_balance
+                    new_bal = bal + interest
+                    total_roi_received = client_acct.total_roi_received + interest
+                    cl = Account.objects.filter(user=investment.user)
+                    cl.update(roi_balance=new_bal, total_roi_received=total_roi_received)
 
-                # Investment Profile
-                inv_pro = Investment_profile.objects.filter(status="Active", user=investment.user)
-                inv_amt = accounts.amount_earned + interest
-                next_payment = timezone.now() + relativedelta(days=1)
-                inv_pro.update(amount_earned=inv_amt, next_payment=next_payment)
+                    # Investment Profile
+                    inv_pro = Investment_profile.objects.filter(status="Active", user=investment.user)
+                    inv_amt = user.amount_earned + interest
+                    next_payment = timezone.now() + relativedelta(days=1)
+                    inv_pro.update(amount_earned=inv_amt, next_payout=next_payment)
 
-                # ROI email
-                mail_subject = "INVESTMENT INTEREST"
-                to_email = str(email)
-                message1 = render_to_string('boss/emailroi.html', {
+                    # ROI email
+                    mail_subject = "INVESTMENT INTEREST"
+                    to_email = str(email)
+                    message1 = render_to_string('boss/emailroi.html', {
 
-                    'amount': interest,
-                    'plan': str(investment.investment),
-                    'name': investment.user.username,
-                    'time': timezone.now()
+                        'amount': interest,
+                        'plan': str(investment.investment),
+                        'name': investment.user.username,
+                        'time': timezone.now()
 
-                })
-                # message1 = message
-                email = EmailMultiAlternatives(
-                    mail_subject, message1, to=[to_email]
-                )
-                email.attach_alternative(message1, 'text/html')
-                email.content_subtype = 'html'
-                email.mixed_subtype = 'related'
-                print('Roi email sent successfully')
-                email.send()
+                    })
+                    # message1 = message
+                    email = EmailMultiAlternatives(
+                        mail_subject, message1, to=[to_email]
+                    )
+                    email.attach_alternative(message1, 'text/html')
+                    email.content_subtype = 'html'
+                    email.mixed_subtype = 'related'
+                    print('Roi email sent successfully')
+                    email.send()
 
 
 def investment_expired_check():
