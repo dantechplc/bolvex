@@ -17,8 +17,8 @@ def daily_roi():
     investments = Investment_profile.objects.filter(status='Active')
     if investments is not None:
         for investment in investments:
-            date = investment.next_payment
-            if today == date:
+            date = investment.next_payout
+            if date == today:
                 accounts = Investment_profile.objects.get(user=investment.user)
                 interest = accounts.earning
                 client_acct = Account.objects.get(user=investment.user)
