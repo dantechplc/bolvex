@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Bolvex Capital</title>
+    <link rel="stylesheet" href="{% static 'assets11/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets11/css/styles.css' %}">
+</head>
+
+<body style="background: #f5f5f5;">
+    <div class="row">
+        <div class="col-12 text-center text-lg-center text-xl-center" style="background: #252b61;color: #252b61;"><img class="img-fluid" src="https://www.bolvexcapital.com/static/pages/assets/img/bvlx_m.png" width="100px"></div>
+    </div>
+    <div class="row" style="background: #252b61;">
+        <div class="col" style="background: #252b61;color:white;">
+            <h4 class="text-center text-white">Bolvex Capital Transfer Services</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-12">
+                <h4 class="text-center text-body">Your Account Has Been Credited</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="container"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 offset-0">
+                <h5 class="text-body">Amount : {{amount}}</h5>
+                <h5 class="text-body">Sender&nbsp; : {{username}}</h5>
+                <h5 class="text-body">Date : {{date}}</h5>
+                <h5 class="text-body">Balance : {{balance}}</h5>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'assets11/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets11/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

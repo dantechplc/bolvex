@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+       <!-- Start Breadcrumb
+    ============================================= -->
+    <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url({% static 'pages/assets/img/banner/23.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1>Investors Relation</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="/index"><i class="fas fa-home"></i> Company</a></li>
+                        <li class="active">Investors Relation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+        <!-- Start Investors relation Area
+    ============================================= -->
+    <div class="services-details-area default-padding">
+        <div class="container">
+            <div class="services-details-items">
+                <div class="row">
+
+                    <div class="col-lg-8 services-single-content">
+                        <img src="{% static 'pages/assets/img/blog/5.jpg' %}" alt="Thumb">
+                        <h2>Investors Relation</h2>
+                        <p>
+                           Corperate Governance - We are in a relationship business where people are our most important asset. This statement is a core cultural belief and a fundamental element of the success of Bolvex Capital. Members of our community tend to share core values that are highly compatible with those that are central to the business and established at the outset — expertise, integrity and discretion. We treat each other with mutual respect, openness and fairness and are driven by a desire to ‘do the right thing’ by all our stakeholders. This is our culture – it is central to our success. We are therefore proactive in building and reinforcing it.
+                        </p>
+                        
+                       
+
+                    </div>
+
+                    <div class="col-lg-4 services-sidebar">
+                        <!-- Single Widget -->
+                        <div class="single-widget services-list">
+                            <h4 class="widget-title">Company</h4>
+                            <div class="content">
+                                <ul>
+                                     <li><a href="/legal">Legal</a></li>
+                                    <li class="current-item" ><a href="/investors_relation">Investors Relation</a></li>
+                                    <li ><a href="/kyc">KYC Policy</a></li>
+                                    <li ><a href="/privacy">Privacy Policy</a></li>
+                                    <li ><a href="/t_c">Terms and Conditions</a></li>
+                                    <li><a href="/faq">FAQs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Single Widget -->
+                        <div class="single-widget quick-contact text-light" style="background-image: url({% static 'pages/assets/img/about/1.jpg' %});">
+                            <div class="content">
+                                <i class="fas fa-phone"></i>
+                                <h4>Need any help?</h4>
+                                <p>
+                                    We are here to help our customer any time. You can call on 24/7 To Answer Your Question.
+                                </p>
+                                <h2>+ 1571 440 7928</h2>
+                            </div>
+                        </div>
+                        <!-- Single Widget -->
+                        <div class="single-widget brochure">
+                            <h4 class="widget-title">Brochure</h4>
+                            <ul>
+
+                                <li><a href="{% static 'pages/assets/doc/Bolvex_Capital.pdf' %}"><i class="fas fa-file-pdf"></i> Company Overview </a></li>
+                            </ul>
+                        </div>
+                        <!-- End Single Widget -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Services Details Area -->
+
+
+
+
+{% endblock content %}

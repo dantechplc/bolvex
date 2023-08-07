@@ -1,0 +1,511 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+        <!-- Start Banner
+    ============================================= -->
+    <div class="banner-area inc-video video-bg-live bg-cover" style="background-image: url({% static 'pages/assets/img/banner/4.jpg' %});">
+        <div class="player" data-property="{videoURL:'gOqlwlQjVis',containment:'.video-bg-live', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:3, opacity:1, quality:'default'}"></div>
+
+        <div id="bootcarousel" class="carousel text-light slide animate_text" data-ride="carousel">
+
+            <!-- Indicators for slides -->
+            <div class="carousel-indicator">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ol class="carousel-indicators right">
+                                <li data-target="#bootcarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#bootcarousel" data-slide-to="1"></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="box-table shadow dark">
+                        <div class="box-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 offset-lg-4">
+                                        <div class="content">
+                                            <h4 data-animation="animated zoomInRight">Expert Management</h4>
+                                            <h2 data-animation="animated slideInRight">Insigthful Investment<span>  Strategy</span></h2>
+                                            <a data-animation="animated zoomInUp" class="btn btn-theme effect btn-md" href="/about">Discover More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box-table shadow dark">
+                        <div class="box-cell">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 offset-lg-4">
+                                        <div class="content">
+                                            <h4 data-animation="animated zoomInRight">More convenient</h4>
+                                            <h2 data-animation="animated slideInUp">Find Value And Build Some <span>Confidence</span></h2>
+                                            <a data-animation="animated zoomInUp" class="btn btn-theme effect btn-md" href="/about">Discover More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Wrapper for slides -->
+
+        </div>
+    </div>
+    <!-- End Banner -->
+
+    <!-- Star Services Area
+    ============================================= -->
+    <div class="default-services-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h4>Our Services</h4>
+                        <h2>What We Bring To You</h2>
+                        <div class="devider"></div>
+                        <p>
+                            We offer our Investors with exclusives services with the aim of achieveing financial growth and stability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="services-items">
+                <div class="row">
+                    <!-- Single Item -->
+                    <div class="col-lg-4 col-md-6 single-item wow fadeInUp" data-wow-delay="300ms">
+                        <div class="item">
+                            <div class="info">
+                                <i class="flaticon-money"></i>
+                                <h4><a href="/services">Advisory Account</a></h4>
+                                <p>
+                                    We provide advisory accounts driven by our experts in accordance with the Investor's stated investment goals.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="col-lg-4 col-md-6 single-item wow fadeInUp" data-wow-delay="500ms">
+                        <div class="item">
+                            <div class="info">
+                                <i class="flaticon-budget"></i>
+                                <h4><a href="/services">Investment Planning</a></h4>
+                                <p>
+                                  Bolvex Capital offers quality investment plans by identifying our Investors financial goals and converting them into financial profits.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="col-lg-4 col-md-6 single-item wow fadeInUp" data-wow-delay="700ms">
+                        <div class="item">
+                            <div class="info">
+                                <i class="flaticon-money-1"></i>
+                                <h4><a href="/services">Safe Investment</a></h4>
+                                <p>
+                                   Our platform is secured and managed by our professionals. We use the latest digital security systems in monitoring our platform.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="col-lg-4 col-md-6 single-item wow fadeInUp" data-wow-delay="400ms">
+                        <div class="item">
+                            <div class="info">
+                                <i class="flaticon-funds"></i>
+                                <h4><a href="/services">Saving & Investments</a></h4>
+                                <p>
+                                  We offer both savings and investment oppurtunities to our clients. Bolvex Capital is well known for providing quality services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="col-lg-4 col-md-6 single-item wow fadeInUp" data-wow-delay="700ms">
+                        <div class="item">
+                            <div class="info">
+                                <i class="flaticon-analysis"></i>
+                                <h4><a href="/services">Blockchain Investment</a></h4>
+                                <p>
+                                   Investment just got easier with our digital payment systems. Investors now make use of their E-wallets.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                    <!-- Single Item -->
+                    <div class="col-lg-4 col-md-6 single-item wow fadeInUp" data-wow-delay="900ms">
+                        <div class="item">
+                            <div class="info">
+                                <i class="flaticon-analytics-1"></i>
+                                <h4><a href="/services">Strategic Analysis</a></h4>
+                                <p>
+                                  Bolvex Capital analytical services and proven to be the best by providing the best result in determining our financial solutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Item -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="our_service">
+                <div class="overlay">
+                    <div class="container">
+                       <div class="site-heading text-center">
+                        <br><h4>How we Charge</h4>
+                        <h2>Investment Plan</h2>
+                        <div class="devider"></div>
+                    </div>
+
+                        <div class="row">
+                            {% for plan in plan %}
+                            <div class="col-md-4">
+                                <div class="pricing">
+                                    <div class="pricing-head ">
+                                        <h3>{{plan.name}}<span>
+                                                PLAN</span>
+                                        </h3>
+                                        <h4><i></i>{{plan.daily_rate}}<i>%</i>
+                                            <span>
+                                                Daily profit </span>
+                                        </h4>
+                                    </div>
+                                    <ul class="pricing-content list-unstyled">
+                                        <div class="table-content">
+
+                                            <li style="font-size:12.0pt" class=" ">Minimum : {{plan.min_amount}}</li>
+                                            <li style="font-size:12.0pt" class="">Maximum :{{plan.max_amount}}</li>
+                                            <li style="font-size:12.0pt" class="">{{plan.referral_commission}}% Referral Commission</li>
+                                            <li style="font-size:12.0pt" class="">investment period: 2-3 month</li>
+                                            <li style="font-size:12.0pt" class="">24/hrs Support</li>
+
+
+                                        </div>
+                                    </ul>
+                                    <div class="pricing-footer">
+
+                                        <a href="/signup" class="btn gradient-4">
+                                            <span style="color:white;">Invest</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <!-- End Services Area -->
+         <br><br><div class="text-center sec-title style-three centred">
+
+                            <h2  style='color:teal;'> Get your profit directly to your e-wallet</h2>
+
+                        </div>
+
+    <!-- pricing-section end -->
+
+    <!-- Star About Area
+    ============================================= -->
+    <div class="about-area bg-dark overflow-hidden text-light relative">
+        <!-- Fixed Shape -->
+        <div class="fixed-shape" style="background-image: url({% static 'pages/assets/img/shape/8.png' %});"></div>
+        <!-- End Fixed Shape -->
+        <div class="container">
+            <div class="about-items">
+                <div class="row">
+                    <div class="col-lg-6 thumb order-lg-last wow fadeInUp" style="background-image: url({% static 'pages/assets/img/about/3.jpg' %});">
+                        <div class="successr-ate">
+                            <div class="icon">
+                                <i class="flaticon-target"></i>
+                            </div>
+                            <div class="content">
+                                <h2>98%</h2>
+                                <span>Success Rate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 info wow fadeInDown">
+                        <h4>Who we are</h4>
+                        <h2>We Combine Technology <br> with Business Ideas</h2>
+                        <p>
+                             Our digital services have improve both the performance and overall effectiveness of products, systems and services, which, in turn, enables our businesses to expand quickly and efficiently.
+                        </p>
+                        <ul>
+                            <li>
+                                <h5>Fast Working Processes</h5>
+                                <p>
+                                    Bolvex Capital uses latest technologies to optimize our services.
+                                </p>
+                            </li>
+                            <li>
+                                <h5>24/7 Live Support</h5>
+                                <p>
+                                    Our support team respond is always ready to respond to your queries.
+                                </p>
+                            </li>
+                        </ul>
+                        <a class="btn btn-light effect btn-md" href="/about">Discover More</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End About Area -->
+
+   <!-- Start Expertise Area
+    ============================================= -->
+    <div class="expertise-area default-padding">
+        <div class="container">
+            <!-- Item Heading -->
+            <div class="item-heading">
+                <div class="row">
+                    <div class="col-lg-6 info">
+                        <h4>Our expertise</h4>
+                        <h2>We offer Investors with the best financial growth strategy.</h2>
+                    </div>
+                    <div class="col-lg-6 right-info">
+                        <div class="skill-items">
+                            <!-- Progress Bar Start -->
+                            <div class="progress-box">
+                                <h5>Security</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" data-width="99">
+                                        <span>99%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-box">
+                                <h5>Digital Services</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" data-width="98">
+                                        <span>98%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-box">
+                                <h5>Customer Care</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" data-width="98">
+                                        <span>98%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Progressbar -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Item Heading -->
+            <br><br><div class="site-heading text-center">
+                        <h4>Stay Updated</h4>
+                        <h2>Crypto Live Prices</h2>
+                        <div class="devider"></div>
+                    </div>
+            <!-- Expertise Content -->
+            <div style="height:433px; background-color: #FFFFFF; overflow:hidden; box-sizing: border-box; border: 1px solid #56667F; border-radius: 4px; text-align: right; line-height:14px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #56667F; padding: 0px; margin: 0px; width: 100%;"><div style="height:413px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=full_v2&theme=light&cnt=6&pref_coin_id=1505&graph=yes" width="100%" height="409px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #FFFFFF; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #FFFFFF; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Coinlib</div></div>
+
+        </div>
+    </div>
+    <!-- End Expertise Area -->
+
+    <!-- Star Partner Area
+    ============================================= -->
+    <div class="partner-area overflow-hidden text-light">
+        <div class="container">
+           <br><br> <div class="item-box red">
+                <div class="row align-center">
+                    <div class="col-lg-6 info">
+                        <h2>We're Trusted by <span>2500+</span> <br> Investors and Business Partners</h2>
+                        <p>
+                            Our business partners and investors population have grown over the years due to our stability in maintaing good busines relationship.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Partner Area -->
+
+    <!-- ("overflow-hidden-box overflow-hidden" helps you to ignore extra width for the circle shape)-->
+    <div class="overflow-hidden-box overflow-hidden">
+        <!-- Star Team Area
+        ============================================= -->
+
+        <!-- End Team Area -->
+
+        <!-- Star testimonials Area
+        ============================================= -->
+        <div class="testimonials-area bg-gray default-padding-bottom">
+            <!-- Fixed Shape -->
+            <div class="fixed-shape" style="background-image: url({% static 'pages/assets/img/shape/10-red.png' %});"></div>
+            <!-- End Fixed Shape -->
+            <div class="container">
+                <div class="testimonial-items">
+                    <div class="row align-center">
+                        <div class="col-lg-7 testimonials-content">
+                            <div class="testimonials-carousel owl-carousel owl-theme">
+                                <!-- Single Item -->
+                                <div class="item">
+                                    <div class="info">
+                                        <p>
+                                            Well I can say the platform is user-friendly and easy to invest, the most interesting fact i like is the fast confirmation on withdrawal.
+                                        </p>
+                                        <div class="provider">
+                                            <div class="thumb">
+                                                <img src="{% static 'pages/assets/img/teams/14.jpg' %}" alt="Author">
+                                            </div>
+                                            <div class="content">
+                                                <h4>Ryan Smith</h4>
+                                                <span> Client</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                                <!-- Single Item -->
+                                <div class="item">
+                                    <div class="info">
+                                        <p>
+                                             Investment made easier and safer with Bolvex Capital. I like your investment strategy used, fast withdrawal from the wallet makes me feel comfortable using the platform.
+                                        </p>
+                                        <div class="provider">
+                                            <div class="thumb">
+                                                <img src="{% static 'pages/assets/img/teams/13.jpg' %}" alt="Author">
+                                            </div>
+                                            <div class="content">
+                                                 <h4>Cliford Benson</h4>
+                                            <span> Client</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Single Item -->
+                            </div>
+                        </div>
+                        <div class="col-lg-5 info">
+                            <h4>Testimonials</h4>
+                            <h2>Check what our satisfied clients said</h2>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End testimonials Area -->
+    </div>
+    <!-- End Overflow Hidden Box -->
+    <!-- Star Faq
+    ============================================= -->
+    <div class="faq-content-area default-padding">
+        <div class="container">
+            <div class="faq-items">
+                <div class="row align-center">
+
+                    <div class="col-lg-10 offset-lg-1">
+                        <div class="faq-content wow fadeInUp">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h4 class="mb-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                               When and how much can I withdraw at a given time?
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p>
+                                                You can withdraw your available balance after one week of your investment.
+                                            </p>
+                                            <div class="ask-question">
+                                                <span>Still no luck?</span> <a href="/contact">Ask a question</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h4 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                             What is the strategy?
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p>
+                                                Don’t wait to invest. Getting started with a small amount of money is better than not investing at all. Over the last 50 years, the stock market (as measured by the S&P 500, a collection of the 500 largest US companies) has averaged a 10% return. With $2000 invested today, and a 10% return and Bolvex Capital is offering you 18%, so why not sign up now and get started Keep in mind, past performance of the stock market doesn’t guarantee it will continue to perform this way in the future but Bolvex Capital guarantees you that your daily profit and weekly withdrawal which is certain and safe.
+                                            </p>
+                                            <div class="ask-question">
+                                                <span>Still no luck?</span> <a href="/contact">Ask a question</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h4 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                         How is my information secured?
+                                      </h4>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p>
+                                               Bolvex Capital works hard to ensure that our systems are secure and that they meet industry standards. Where appropriate, we employ firewalls, encryption technology, user access codes (e.g., userIDs and passwords), and other mechanisms to control access to systems and data. We will continue to assess new technology, and evaluate its ability to provide additional protection of your personal information. Privacy and security of your information are our highest priorities. Secure Socket Layer (SSL) technology ensures that your account can only be accessed with the password you choose, so you can use our services with confidence.
+                                            </p>
+                                            <div class="ask-question">
+                                                <span>Still no luck?</span> <a href="/contact">Ask a question</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingFour">
+                                        <h4 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                          What is the fee on Withdrawal and Deposit?
+                                      </h4>
+                                    </div>
+                                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <p>
+                                               No fees on Deposit. Withdrawal have a fee of 5 USD.
+                                            </p>
+                                            <div class="ask-question">
+                                                <span>Still no luck?</span> <a href="/contact">Ask a question</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Faq -->
+
+
+{% endblock content %}
+

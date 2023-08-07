@@ -1,0 +1,137 @@
+{% load static %}
+
+
+<div id="sidebar-scrollbar">
+               <nav class="iq-sidebar-menu">
+                  <ul id="iq-sidebar-toggle" class="iq-menu">
+                     <li class="active">
+                        <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="{% url 'transaction:dashboard' %}"><i class="las la-laptop-code"></i>Account Dashboard</a></li>
+
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="ri-wallet-3-line iq-arrow-left"></i><span>Deposit</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+                           <li ><a href="{% url 'transaction:deposit_money' %}"><i class="las la-plus-circle"></i>Deposit</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-bar-chart-fill iq-arrow-left"></i><span>Investment</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+
+                           <li><a href="{% url 'transaction:new_investment' %}"><i class="las la-plus-circle"></i>New Investment</a></li>
+                           <li><a href="{% url 'transaction:investment_log' %}"><i class="las la-th-list"></i>Investment Log</a></li>
+
+                        </ul>
+                     </li>
+                      <li>
+                        <a href="#menu-level" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-wallet-3-line iq-arrow-left"></i><span>Withdrawal</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="menu-level" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="{% url 'transaction:withdraw_money' %}"><i class="las la-minus-circle"></i>Withdraw Funds</a></li>
+                           <li><a href="{% url 'transaction:convert_roi' %}"><i class="las la-minus-circle"></i>ROI Withdrawal</a></li>
+                           <li><a href="{% url 'transaction:convert_bonus' %}"><i class="las la-minus-circle"></i>Convert Bonus</a></li>
+                           <li><a href="{% url 'transaction:with_log' %}"><i class="las la-th-list"></i>Withdrawal Log</a></li>
+                           
+
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="{% url 'transaction:transfer_fund' %}" class="iq-waves-effect collapsed"  aria-expanded="false"><i class="ri-send-plane-fill iq-arrow-left"></i><span>Transfer Funds</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                       
+                     </li>
+
+                     <li>
+                        <a href="{% url 'transaction:transactions' %}" class="iq-waves-effect collapsed"  aria-expanded="false"><i class="ri-exchange-dollar-fill iq-arrow-left"></i><span>Transactions</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                       
+                     </li>
+                     <li>
+                        <a href="{% url 'account_settings' %}" class="iq-waves-effect collapsed"  aria-expanded="false"><i class="fa fa-user-o iq-arrow-left"></i><span>Account Settings</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                       
+                     </li>
+                    
+                     <li>
+                        <a href="{% url 'transaction:referral_system' %}" class="iq-waves-effect collapsed"  aria-expanded="false"><i class="ri-user-voice-fill iq-arrow-left"></i><span>Referral System</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                       
+                     </li>
+                     <li>
+                        <a href="{% url 'transaction:customer_care' %}" class="iq-waves-effect collapsed"  aria-expanded="false"><i class="ri-customer-service-2-fill iq-arrow-left"></i><span>Customer Care</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                       
+                     </li>
+                       <li>
+                        <a href="/logout" class="iq-waves-effect collapsed"  aria-expanded="false"><i class="ri-shut-down-line iq-arrow-left"></i><span>Logout</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                     </li>
+
+
+                  </ul>
+               </nav>
+               <div class="p-3"></div>
+            </div>
+         </div>
+         <!-- TOP Nav Bar -->
+         <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+               <nav class="navbar navbar-expand-lg navbar-light p-0">
+                  <div class="iq-menu-bt d-flex align-items-center">
+                     <div class="wrapper-menu">
+                        <div class="main-circle"><i class="ri-menu-line"></i></div>
+                        <div class="hover-circle"><i class="ri-close-fill"></i></div>
+                     </div>
+                     <div class="iq-navbar-logo d-flex justify-content-between ml-3">
+                        <a href="{% url 'transaction:dashboard' %}" class="header-logo">
+                        <img style="width:120px; height:60px;" src="{% static 'bvlx_n.png' %}" class="img-fluid rounded" alt="">
+                        <span></span>
+                        </a>
+                     </div>
+                  </div>
+
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                  </div>
+                  <ul class="navbar-list">
+                     <li class="line-height">
+                        <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
+                           <img style="width:50px; border-radius:5px;" src="{{request.user.account.profile_pic.url}}" class="img-fluid rounded mr-3" alt="profile_pic">
+                           <div class="caption">
+                              <h6 class="mb-0 line-height" style="text-transform:uppercase;">{{request.user.username}} </h6>
+                              <p class="mb-0">Account</p>
+                           </div>
+                        </a>
+                        <div class="iq-sub-dropdown iq-user-dropdown">
+                           <div class="iq-card shadow-none m-0">
+                              <div class="iq-card-body p-0 ">
+
+                                 <div class="bg-primary p-3">
+                                    <h5 class="mb-0 text-white line-height" style="text-transform:uppercase;">{{request.user.username}}</h5>
+                                    <p class="font-size-15">Account Balance: {{request.user.client_account.main_balance}} </p>
+                                    <span class="text-white font-size-12">Online</span>
+                                 </div>
+                                 <a href="{% url 'account_settings' %}" class="iq-sub-card iq-bg-primary-hover">
+                                    <div class="media align-items-center">
+                                       <div class="rounded iq-card-icon iq-bg-primary">
+                                          <i class="ri-account-box-line"></i>
+                                       </div>
+                                       <div class="media-body ml-3">
+                                          <h6 class="mb-0 ">Account settings</h6>
+                                          <p class="mb-0 font-size-12">Manage your account.</p>
+                                       </div>
+                                    </div>
+                                 </a>
+
+                                 <div class="d-inline-block w-100 text-center p-3">
+                                    <a class="bg-primary iq-sign-btn" href="{% url 'logout' %}" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+    
+         
+         <!-- TOP Nav Bar END -->

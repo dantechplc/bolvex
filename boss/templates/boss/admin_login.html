@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>BOLVEX ADMIN</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="{% static 'pages/img/logo/bol.png' %}" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/bootstrap.min.css' %}">
+
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/typography.css' %}">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/style.css' %}">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/responsive.css' %}">
+   </head>
+       <!-- Sign in Start -->
+        <section class="sign-in-page">
+          <div id="container-inside">
+              <div class="cube"></div>
+              <div class="cube"></div>
+              <div class="cube"></div>
+              <div class="cube"></div>
+              <div class="cube"></div>
+          </div>
+            <div class="container p-0">
+                <div class="row no-gutters height-self-center">
+                  <div class="col-sm-12 align-self-center  rounded">
+                      <div class="col-md-5 bg-white sign-in-page-data">
+                          <div class="sign-in-from">
+                    <div class="row m-0">
+                          {% if messages %}
+            {% for message in messages %}
+                      <div class="col-lg-12 alert alert-primary alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="color:black">&times;</span>
+                                        </button> <strong>{{message}}</strong></div>
+
+					        {% endfor %}
+        {% endif %}
+                              <h1 class="mb-0 text-center">Admin</h1>
+                              <p class="text-center text-dark">Enter your email address and password to access admin panel.</p>
+                              <form method="post" class="mt-4">
+                                  {% csrf_token %}
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Email address</label>
+                                      <input name="email" type="email" class="form-control mb-0" id="exampleInputEmail1" placeholder="Enter email">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputPassword1">Password</label>
+
+                                      <input name="password" type="password" class="form-control mb-0" id="exampleInputPassword1" placeholder="Password">
+                                  </div>
+
+                                  <div class="sign-info text-center">
+                                      <button type="submit" class="btn btn-primary d-block w-100 mb-2">Sign in</button>
+
+                                  </div>
+                              </form>
+                          </div>
+                      </div>
+
+            </div>
+        </section>
+        <!-- Sign in END -->
+    <!-- Footer -->
+      <footer class="iq-footer">
+         <div class="container-fluid">
+            <div class="row">
+
+               <div class="col-lg-6 text-right">
+                  Copyright 2022 <a href="#">BOLVEX CAPITAL</a> All Rights Reserved.
+               </div>
+            </div>
+         </div>
+      </footer>
+ <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="{% static 'boss/js/jquery.min.js' %}"></script>
+
+      <script src="{% static 'boss/js/bootstrap.min.js' %}"></script>
+      <!-- Appear JavaScript -->
+
+      <!-- Wow JavaScript -->
+      <!-- am animated JavaScript -->
+      <script src="{% static 'boss/js/animated.js' %}"></script>
+      <!-- am kelly JavaScript -->
+
+      <!-- Style Customizer -->
+      <script src="{% static 'boss/js/style-customizer.js' %}"></script>
+      <!-- Chart Custom JavaScript -->
+
+      <!-- Custom JavaScript -->
+      <script src="{% static 'boss/js/custom.js' %}"></script>

@@ -1,0 +1,342 @@
+{% extends 'ds/base.html' %}
+{% load static %}
+{% block content %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+{% block jquery %}
+var endpoint = '{% url 'transaction:api-data' %}'
+var Deposit = []
+var Withdrawal = []
+var labels = [];
+
+$.ajax({
+   method: "GET",
+   url:endpoint,
+   success: function(data){
+      labels = data.labels
+      deposit = data.Deposit
+
+      console.log(deposit)
+      var ctx = document.getElementById("chart");
+      var chart = new Chart(ctx, {
+         type: "bar",
+         data: {
+            labels:labels,
+            datasets: [
+               {
+                  label: "Amount Earned ($)",
+                  backgroundColor: "#79AEC8",
+                  borderColor: "#FFA500",
+                  data: deposit,
+
+               },
+
+
+            ]
+
+         },
+         options: {
+            scales: {
+               y: {
+                  beginAtZero: true
+               },
+
+            },
+            title: {
+               text: "Investment Volume ",
+               display: true
+            }
+         }
+      });
+
+
+   },
+   error: function(error_data){
+      console.log("error")
+      console.log(error_data)
+   }
+}
+)
+
+{% endblock jquery %}
+
+</script>
+
+
+  <!-- Page Content  -->
+  <div id="content-page" class="content-page">
+   <div class="container-fluid">
+      <div class="row">
+         {% for message in messages %}
+         <div class="col-lg-12 alert alert-success alert-dismissible fade show">
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                           </button> <strong>{{message}}</strong></div>
+
+          {% endfor %}
+
+          {% if request.user.account.Verification_status == "Unverified" %}
+           <div class="col-lg-12 alert alert-danger alert-dismissible fade show">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button> <strong>Verify your Account! click <a href="/verification"> Here </a> to verify </strong>  <span></span> </div>
+          {% endif %}
+          {% if  request.user.account.Verification_status == "Under Review" %}
+               <div class="col-lg-12 alert alert-warning alert-dismissible fade show">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                              </button> <strong> Account Under Review !</strong></div>
+          {% endif %}
+
+         <div class="col-lg-6">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                     <div class="iq-card-body">
+                        <div class="top-block d-flex align-items-center justify-content-between">
+                           <h5>Current Balance</h5>
+                           <span class="badge badge-primary">USD</span>
+                        </div>
+                        <h3><span class="">{{request.user.client_account.main_balance}}</span></h3>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                           <p class="mb-0">Last Deposit</p>
+                           <span class="text-primary">{{date|date}}</span>
+                        </div>
+
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                  <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                     <div class="iq-card-body">
+                        <div class="top-block d-flex align-items-center justify-content-between mt-1">
+                           <h5>Total Investment</h5>
+                           <span class="badge badge-primary">USD</span>
+                        </div>
+                        <h3><span class="">{{request.user.client_account.total_amount_investment}}</span></h3>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-lg-12">
+                  <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                     <div class="iq-card-body">
+                        <div class="top-block d-flex align-items-center justify-content-between mt-1">
+                           <h5>ROI Balance</h5>
+                           <span class="badge badge-primary">USD</span>
+                        </div>
+                        <h3><span class="">{{request.user.client_account.total_expected_roi}}</span></h3>
+                        <div class="d-flex align-items-center justify-content-between mt-1">
+                           <p class="mb-0">Referral Bonus</p>
+                           <span class="text-primary">{{request.user.client_account.bonus}}</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-12 iq-card" >
+                  <div class="iq-card-header d-flex justify-content-between">
+                     <div class="iq-header-title">
+                        <h4 class="card-title">Investment Statistics</h4>
+                     </div>
+                  </div>
+                  <div class="iq-card-body">
+                     <canvas id="chart" width="300" height="300"></canvas>
+                  </div>
+               </div>
+
+            </div>
+
+
+
+         </div>
+         <div class="col-lg-6">
+            <div class="row">
+               <div class="col-md-12 box">
+                  <div class="box-body">
+                     <div class="position-relative">
+                       <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container">
+                          <div class="tradingview-widget-container__widget"></div>
+                          <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">BTCUSDT rates</span></a> by TradingView</div>
+                          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                          {
+                          "symbol": "BINANCE:BTCUSDT",
+                          "width": "100%",
+                          "height": "100%",
+                          "locale": "en",
+                          "dateRange": "12M",
+                          "colorTheme": "light",
+                          "trendLineColor": "rgba(41, 98, 255, 1)",
+                          "underLineColor": "rgba(41, 98, 255, 0.3)",
+                          "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                          "isTransparent": false,
+                          "autosize": true,
+                          "largeChartUrl": ""
+                        }
+                          </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+
+                     </div>
+                  </div>
+               </div>
+
+
+
+            </div>
+
+         </div>
+
+
+
+
+         <div class="col-lg-6 iq-card">
+            <div class="iq-card-header d-flex justify-content-between">
+               <div class="iq-header-title">
+                  <h3 class="card-title">Exchange Rates</h3>
+               </div>
+            </div>
+            <div class="iq-card-body">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+               <div class="tradingview-widget-container__widget"></div>
+               <div class="tradingview-widget-copyright"><a href="#" rel="noopener" target="_blank"><span class="blue-text">Exchange Rates</span></a> by Bolvex Capital</div>
+               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+               {
+               "width": "100%",
+               "height": "400",
+               "currencies": [
+               "EUR",
+               "USD",
+               "GBP"
+               ],
+               "isTransparent": false,
+               "colorTheme": "light",
+               "locale": "en"
+            }
+               </script>
+            </div>
+            <!-- TradingView Widget END -->
+            </div>
+         </div>
+
+
+
+
+         <div class="col-sm-12 col-lg-6">
+            <div class="iq-card">
+               <div class="iq-card-header d-flex justify-content-between">
+                  <div class="iq-header-title">
+                     <h4 class="card-title">Refer a Friend and earn more!</h4>
+                  </div>
+               </div>
+               <div class="iq-card-body">
+                  <img class="img-fluid rounded mx-auto d-block" src="{% static 'referral.png' %}">
+                  <p class="text-center">Earn 10% on referral commision!</p>
+
+                  <div class="form-horizontal" >
+                     <div class="form-group row">
+                        <br><label class="control-label col-sm-2 align-self-center mb-0" for="email">Referral link:</label>
+                        <div class="col-sm-10" data-clipboard-target="#refUrl" data-success="Copied" data-text="Copy Link"><em class="clipboard-icon icon ">
+                           <input type="text" class="form-control" readonly="" id="myInput" value="https://{{ domain }}/signup/{{code}}">
+                        </div>
+                     </div>
+                     <button type="button"  class="btn-primary btn mb-1 "     onclick="myFunction()">Copy
+                        <span class="tooltiptext" id="myTooltip"></span>
+                     </button>
+
+                     </div>
+               </div>
+
+
+            </div>
+         </div>
+
+
+
+      </div>
+
+   </div>
+
+   <div class="col-lg-12">
+      <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+         <div class="iq-card-header d-flex justify-content-between">
+            <div class="iq-header-title">
+               <h4 class="card-title"> Recent Transaction </h4>
+            </div>
+
+         </div>
+         <div class="iq-card-body">
+            <div class="table-responsive">
+               <table class="table mb-0 table-borderless">
+                  <thead>
+                     <tr>
+
+                        <th scope="col">Transaction_Id</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Status</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {% for transaction in transaction %}
+                     <tr>
+                        {% if transaction.get_transaction_type_display == "Investment" %}
+                        <td>{{ transaction.investment_name }} {{transaction.trx_code}}</td>
+                       {% else %}
+                       <td>{{ transaction.get_transaction_type_display }} {{transaction.trx_code}}</td>
+                      {% endif %}
+                     <td>{{ transaction.date }}</td>
+                     <td><span></span> {{ transaction.amount }}</td>
+                     {% if transaction.status == 'failed' %}
+                        <td><span class="badge badge-danger px-2">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'pending' %}
+                        <td><span class="badge badge-warning px-2">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'Successful' %}
+                        <td><span class="badge badge-success px-2">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'Received' %}
+                        <td><span class="badge badge-success">{{ transaction.status }}</span></td>
+                     {% elif transaction.status == 'Expired' %}
+                        <td><span class="badge badge-danger">{{ transaction.status }}</span></td>
+                     {% else %}
+                        <td><span class="badge badge-info">{{ transaction.status }}</span></td>
+                     {% endif %}
+
+                     </tr>
+                 {% endfor %}
+                 </tbody>
+               </table>
+            </div>
+         </div>
+
+      </div>
+
+
+
+
+
+   </div>
+
+</div>
+
+
+
+   <script>
+      function myFunction() {
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        document.execCommand("copy");
+
+
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = " Successful" ;
+      }
+
+      function outFunc() {
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "";
+      }
+      </script>
+
+{% endblock  %}

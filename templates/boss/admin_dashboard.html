@@ -1,0 +1,602 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+
+<head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>BOLVEX CAPITAL ADMIN</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="{% static 'pages/img/logo/bol.png' %}" />
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/bootstrap.min.css' %}">
+      <!-- Typography CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/typography.css' %}">
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/style.css' %}">
+      <!-- Responsive CSS -->
+      <link rel="stylesheet" href="{% static 'boss/css/responsive.css' %}">
+   </head>
+   <body class="sidebar-main-active right-column-fixed">
+      <!-- loader Start -->
+      <div id="loading">
+         <div id="loading-center">
+         </div>
+      </div>
+      <!-- loader END -->
+      <!-- Wrapper Start -->
+      <div class="wrapper">
+         <!-- Sidebar  -->
+         <div class="iq-sidebar">
+            <div class="iq-navbar-logo d-flex justify-content-between">
+               <a href="index.html" class="header-logo">
+                  <img src="{% static 'pages/img/logo/bol.png' %}" class="img-fluid rounded" alt="">
+                  <span>BOLVEX ADMIN</span>
+               </a>
+               <div class="iq-menu-bt align-self-center">
+                  <div class="wrapper-menu">
+                     <div class="main-circle"><i class="ri-menu-line"></i></div>
+                     <div class="hover-circle"><i class="ri-close-fill"></i></div>
+                  </div>
+               </div>
+            </div>
+            <div id="sidebar-scrollbar">
+               <nav class="iq-sidebar-menu">
+                  <ul id="iq-sidebar-toggle" class="iq-menu">
+                     <li class="active">
+                        <a href="#dashboard" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-home iq-arrow-left"></i><span>Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="admin_dashboard.html"><i class="las la-laptop-code"></i>Account Dashboard</a></li>
+
+                        </ul>
+                     </li>
+
+                     <li>
+                        <a href="#userinfo" class="iq-waves-effect" data-toggle="collapse" aria-expanded="false"><span class="ripple rippleEffect"></span><i class="las la-user-tie iq-arrow-left"></i><span>Clients</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="userinfo" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle" style="">
+
+                           <li><a href="client_edit.html"><i class="las la-edit"></i>User Edit</a></li>
+                           <li><a href="client_add.html"><i class="las la-plus-circle"></i>User Add</a></li>
+                           <li><a href="client_list.html"><i class="las la-th-list"></i>User List</a></li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="las la-mail-bulk iq-arrow-left"></i><span>Email</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+
+                           <li><a href="admin_email.html"><i class="ri-mail-send-line"></i>Email Compose</a></li>
+                        </ul>
+                     </li>
+                      <li>
+                        <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-bar-chart-fill iq-arrow-left"></i><span>Investments</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="plans.html"><i class="las la-inbox"></i>Investment Plans</a></li>
+
+                        </ul>
+                     </li>
+
+                     <li>
+                        <a href="wallet.html" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-wallet-3-line iq-arrow-left"></i><span>Wallets</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                     </li>
+                     <li>
+                        <a href="#tables" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-wallet-3-line iq-arrow-left"></i><span>Transactions</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+                        <ul id="tables" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                           <li><a href="dep_trx.html"><i class="ri-table-line"></i>Deposit</a></li>
+                           <li><a href="with_trx.html"><i class="ri-database-line"></i>Withdrawals</a></li>
+                           <li><a href="inv_trx.html"><i class="ri-refund-line"></i>Investments</a></li>
+                        </ul>
+                     </li>
+                       <li>
+                        <a href="#tables" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-shut-down-line iq-arrow-left"></i><span>Logout</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
+
+                     </li>
+
+                  </ul>
+               </nav>
+               <div class="p-3"></div>
+            </div>
+         </div>
+         <!-- TOP Nav Bar -->
+         <div class="iq-top-navbar">
+            <div class="iq-navbar-custom">
+               <nav class="navbar navbar-expand-lg navbar-light p-0">
+                  <div class="iq-menu-bt d-flex align-items-center">
+                     <div class="wrapper-menu">
+                        <div class="main-circle"><i class="ri-menu-line"></i></div>
+                        <div class="hover-circle"><i class="ri-close-fill"></i></div>
+                     </div>
+                     <div class="iq-navbar-logo d-flex justify-content-between ml-3">
+                        <a href="index.html" class="header-logo">
+                        <img src="{% static 'pages/img/logo/bol.png' %}" class="img-fluid rounded" alt="">
+                        <span>Bolvex</span>
+                        </a>
+                     </div>
+                  </div>
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
+                  <i class="ri-menu-3-line"></i>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav ml-auto navbar-list">
+
+                        <li class="nav-item nav-icon">
+                           <a href="#" class="search-toggle iq-waves-effect bg-primary rounded">
+                           <i class="ri-notification-line"></i>
+                           <span class="bg-danger dots"></span>
+                           </a>
+                           <div class="iq-sub-dropdown">
+                              <div class="iq-card shadow-none m-0">
+                                 <div class="iq-card-body p-0 ">
+                                    <div class="bg-primary p-3">
+                                       <h5 class="mb-0 text-white">all notifications<smaLl cLass="badge  badge-light float-right pt-1">4</small></h5>
+                                    </div>
+                                    <a href="#" class="iq-sub-card" >
+                                       <div class="media align-items-center">
+                                          <div class="">
+                                             <img class="avatar-40 rounded" src="{% static 'pages/img/logo/bol.png' %}" alt="">
+                                          </div>
+                                          <div class="media-body ml-3">
+                                             <h6 class="mb-0 ">Emma Watson Barry</h6>
+                                             <small class="float-right font-size-12">Just now</small>
+                                             <p class="mb-0">95 MB</p>
+                                          </div>
+                                       </div>
+                                   </a>
+
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+
+                     </ul>
+                  </div>
+                  <ul class="navbar-list">
+                     <li class="line-height">
+                        <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
+                           <img src="{% static 'pages/img/logo/bol.png' %}" class="img-fluid rounded mr-3" alt="user">
+                           <div class="caption">
+                              <h6 class="mb-0 line-height">Bolvex Admin</h6>
+                              <p class="mb-0">Manager</p>
+                           </div>
+                        </a>
+                        <div class="iq-sub-dropdown iq-user-dropdown">
+                           <div class="iq-card shadow-none m-0">
+                              <div class="iq-card-body p-0 ">
+                                 <div class="bg-primary p-3">
+                                    <h5 class="mb-0 text-white line-height">Admin</h5>
+                                    <span class="text-white font-size-12">Online</span>
+                                 </div>
+
+                                 <div class="d-inline-block w-100 text-center p-3">
+                                    <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+         </div>
+         <!-- TOP Nav Bar END -->
+
+
+
+   <!-- Page Content  -->
+
+      <div id="content-page" class="content-page">
+         <div class="container-fluid">
+            <div class="row">
+            	 <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-primary rounded">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-primary rounded shadow" data-wow-delay="0.2s">
+                                 <i class="las la-users"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Total Clients</h6>
+                                 <h3 class="text-white">75</h3>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-success rounded">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-danger rounded shadow" data-wow-delay="0.2s">
+                                 <i class="fa fa-money"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Total Deposit</h6>
+                                 <h3 class="text-white">60</h3>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-warning rounded">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-success rounded shadow" data-wow-delay="0.2s">
+                                 <i class="ri-money-dollar-circle-line"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Pending Withdrawal</h6>
+                                 <h3 class="text-white">80</h3>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-danger rounded">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-danger rounded shadow" data-wow-delay="0.2s">
+                                 <i class="ri-money-dollar-circle-fill"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Pending Deposit</h6>
+                                 <h3 class="text-white">45</h3>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                 <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-primary mr-3"> <i class="ri-user-follow-fill"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">650</h2>
+                                 <p class="mb-0 line-height pr-3">KYC Completed</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-warning mr-3"> <i class="ri-user-2-line"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">480</h2>
+                                 <p class="mb-0 line-height pr-3">KYC Under Review</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-info mr-3"> <i class="ri-user-unfollow-line"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">320</h2>
+                                 <p class="mb-0 line-height pr-3">Unverfied</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-danger mr-3"> <i class="ri-account-box-line"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">650</h2>
+                                 <p class="mb-0 line-height pr-3">Active Users</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Recent Withdrawals</h4>
+                           </div>
+                           <div class="iq-card-header-toolbar d-flex align-items-center">
+                              <div class="dropdown">
+                                 <span class="dropdown-toggle" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false" role="button">
+                                 <i class="ri-more-fill"></i>
+                                 </span>
+                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1" style="">
+                                    <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="iq-card-body">
+                           <ul class="suggestions-lists m-0 p-0">
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon iq-bg-primary"><span><i class="ri-check-fill"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Camelun ios</h6>
+                                    <p class="mb-0"><span class="text-primary">17 paid</span> month out of 23</p>
+                                 </div>
+                                 <div class="media-support-amount ml-3">
+                                    <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
+                                    <p class="mb-0">per month</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon iq-bg-warning"><span><i class="ri-check-fill"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>React</h6>
+                                    <p class="mb-0"><span class="text-warning">Late payment 12 week</span> - pay invoice</p>
+                                 </div>
+                                 <div class="media-support-amount ml-3">
+                                    <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
+                                    <p class="mb-0">per month</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon iq-bg-primary"><span><i class="ri-check-fill"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Camelun ios</h6>
+                                    <p class="mb-0"><span class="text-primary">17 paid</span> month out of 23</p>
+                                 </div>
+                                 <div class="media-support-amount ml-3">
+                                    <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
+                                    <p class="mb-0">per month</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon iq-bg-danger"><span><i class="ri-check-fill"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Camelun ios</h6>
+                                    <p class="mb-0"><span class="text-danger">17 paid</span> month out of 23</p>
+                                 </div>
+                                 <div class="media-support-amount ml-3">
+                                    <h6><span class="text-secondary">$</span><b> 12,434.00</b></h6>
+                                    <p class="mb-0">per month</p>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-md-8">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Payment History</h4>
+                           </div>
+                           <div class="iq-card-header-toolbar d-flex align-items-center">
+                              <div class="dropdown">
+                                 <span class="dropdown-toggle" id="dropdownMenuButton4" data-toggle="dropdown">
+                                 <i class="ri-more-fill"></i>
+                                 </span>
+                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton4" style="">
+                                    <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
+                                    <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="iq-card-body">
+                           <ul class="suggestions-lists m-0 p-0">
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon bg-secondary"><span><i class="fa fa-bitcoin"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Deposit from ATL</h6>
+                                    <p class="mb-0">5 march, 18:33</p>
+                                 </div>
+                                 <div class="media-support-amount text-center ml-3">
+                                    <h6 class="text-info">- 1,470</h6>
+                                    <p class="mb-0">USD</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon bg-primary"><span><i class="ri-paypal-line"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Deposit PayPal</h6>
+                                    <p class="mb-0">5 march, 18:33</p>
+                                 </div>
+                                 <div class="media-support-amount text-center ml-3">
+                                    <h6 class="text-primary">+ 2,220</h6>
+                                    <p class="mb-0">USD</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon bg-primary"><span><i class="ri-check-line"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Deposit from ATL</h6>
+                                    <p class="mb-0">5 march, 18:33</p>
+                                 </div>
+                                 <div class="media-support-amount text-center ml-3">
+                                    <h6 class="text-primary">+ 250</h6>
+                                    <p class="mb-0">USD</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex mb-4 align-items-center">
+                                 <div class="profile-icon bg-info"><span><i class="ri-close-line"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Cancelled</h6>
+                                    <p class="mb-0">5 march, 18:33</p>
+                                 </div>
+                                 <div class="media-support-amount text-center ml-3">
+                                    <h6 class="text-info">0</h6>
+                                    <p class="mb-0">USD</p>
+                                 </div>
+                              </li>
+                              <li class="d-flex align-items-center">
+                                 <div class="profile-icon bg-secondary"><span><i class="ri-refresh-line"></i></span></div>
+                                 <div class="media-support-info ml-3">
+                                    <h6>Deposit from ATL</h6>
+                                    <p class="mb-0">5 march, 18:33</p>
+                                 </div>
+                                 <div class="media-support-amount text-center ml-3">
+                                    <h6 class="text-info">- 1,470</h6>
+                                    <p class="mb-0">USD</p>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+
+                     </div>
+                  </div>
+                   <div class="col-sm-12">
+                  <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                     <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                           <h4 class="card-title"> Recent Clients</h4>
+                        </div>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                           <div class="dropdown">
+                              <span class="dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown">
+                              <i class="ri-more-fill"></i>
+                              </span>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton2" style="">
+                                 <a class="dropdown-item" href="#"><i class="ri-eye-fill mr-2"></i>View</a>
+                                 <a class="dropdown-item" href="#"><i class="ri-delete-bin-6-fill mr-2"></i>Delete</a>
+                                 <a class="dropdown-item" href="#"><i class="ri-pencil-fill mr-2"></i>Edit</a>
+                                 <a class="dropdown-item" href="#"><i class="ri-printer-fill mr-2"></i>Print</a>
+                                 <a class="dropdown-item" href="#"><i class="ri-file-download-fill mr-2"></i>Download</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="iq-card-body">
+                        <div class="table-responsive">
+                           <table class="table mb-0 table-borderless">
+                              <thead>
+                                 <tr>
+                                    <th>
+                                       <div class="custom-control custom-checkbox text-center">
+                                          <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                          <label class="custom-control-label" for="customCheck1"></label>
+                                       </div>
+                                    </th>
+                                    <th scope="col">Profile</th>
+                                    <th scope="col">Referred By</th>
+                                    <th scope="col">Country</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                    <td>
+                                       <div class="custom-control custom-checkbox text-center">
+                                          <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                          <label class="custom-control-label" for="customCheck2"></label>
+                                       </div>
+                                    </td>
+                                    <td><img src="{% static 'images/profile1.png' %}" alt="profile" class="img-fluid rounded avatar-40 text-center"></td>
+                                    <td>Barb Ackue</td>
+                                    <td>IIFL Finance</td>
+                                    <td>07 April 2020</td>
+                                    <td>
+                                       <div class="badge badge-pill badge-primary">Success</div>
+                                    </td>
+                                    <td>
+                                       <div class="flex align-items-center list-user-action">
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="View" href="#"><i class="ri-eye-line"></i></a>
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="#"><i class="ri-pencil-line"></i></a>
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="#"><i class="ri-delete-bin-line"></i></a>
+                                       </div>
+                                    </td>
+                                 </tr>
+
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+      <!-- Wrapper END -->
+       <!-- Footer -->
+      <footer class="iq-footer">
+         <div class="container-fluid">
+            <div class="row">
+
+               <div class="col-lg-6 text-right">
+                  Copyright 2022 <a href="#">Bolvex Capital</a> All Rights Reserved.
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- Footer END -->
+      <!-- color-customizer -->
+
+       <!-- color-customizer END -->
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="{% static 'boss/js/jquery.min.js' %}"></script>
+      <script src="{% static 'boss/js/popper.min.js' %}"></script>
+      <script src="{% static 'boss/js/bootstrap.min.js' %}"></script>
+      <!-- Appear JavaScript -->
+      <script src="{% static 'boss/js/jquery.appear.js' %}"></script>
+      <!-- Countdown JavaScript -->
+      <script src="{% static 'boss/js/countdown.min.js' %}"></script>
+      <!-- Counterup JavaScript -->
+      <script src="{% static 'boss/js/waypoints.min.js' %}"></script>
+      <script src="{% static 'boss/js/jquery.counterup.min.js' %}"></script>
+      <!-- Wow JavaScript -->
+      <script src="{% static 'boss/js/wow.min.js' %}"></script>
+      <!-- Apexcharts JavaScript -->
+      <script src="{% static 'boss/js/apexcharts.js' %}"></script>
+      <!-- Slick JavaScript -->
+      <script src="{% static 'boss/js/slick.min.js' %}"></script>
+      <!-- Select2 JavaScript -->
+      <script src="{% static 'boss/js/select2.min.js' %}"></script>
+      <!-- Owl Carousel JavaScript -->
+      <script src="{% static 'boss/js/owl.carousel.min.js' %}"></script>
+      <!-- Magnific Popup JavaScript -->
+      <script src="{% static 'boss/js/jquery.magnific-popup.min.js' %}"></script>
+      <!-- Smooth Scrollbar JavaScript -->
+      <script src="{% static 'boss/js/smooth-scrollbar.js' %}"></script>
+      <!-- lottie JavaScript -->
+      <script src="{% static 'boss/js/lottie.js' %}"></script>
+      <!-- am core JavaScript -->
+      <script src="{% static 'boss/js/core.js' %}"></script>
+      <!-- am charts JavaScript -->
+      <script src="{% static 'boss/js/charts.js' %}"></script>
+      <!-- am animated JavaScript -->
+      <script src="{% static 'boss/js/animated.js' %}"></script>
+      <!-- am kelly JavaScript -->
+      <script src="{% static 'boss/js/kelly.js' %}"></script>
+      <!-- am maps JavaScript -->
+      <script src="{% static 'boss/js/maps.js' %}"></script>
+      <!-- am worldLow JavaScript -->
+      <script src="{% static 'boss/js/worldLow.js' %}"></script>
+      <!-- Style Customizer -->
+      <script src="{% static 'boss/js/style-customizer.js' %}"></script>
+      <!-- Chart Custom JavaScript -->
+      <script src="{% static 'boss/js/chart-custom.js' %}"></script>
+      <!-- Custom JavaScript -->
+      <script src="{% static 'boss/js/custom.js' %}"></script>
+   </body>
+
+<!-- Mirrored from templates.iqonic.design/findash/html/blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 25 Nov 2021 22:08:22 GMT -->
+</html>

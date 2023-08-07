@@ -1,0 +1,357 @@
+{% extends 'boss/base.html' %}
+{% load static %}
+{% block content %}
+ <style>
+    	.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
+    color: #383a59;
+}
+		.eth:after {
+   content: url('https://api.iconify.design/fa-solid/home.svg?color=%23ba3329&height=16');
+}
+.pseudo-test:after {
+   content: url('https://api.iconify.design/cryptocurrency/eth.svg');
+   vertical-align: -0.125em;
+}
+.bn:after {
+  content: url('https://api.iconify.design/cryptocurrency/bnb.svg');
+   vertical-align: -0.125em;
+}
+.xr:after {
+  content: url('https://api.iconify.design/cryptocurrency/xrp.svg');
+   vertical-align: -0.125em;
+}
+.us:after {
+  content: url('https://api.iconify.design/cryptocurrency/usdt.svg');
+   vertical-align: -0.125em;
+}
+.av:after {
+  content: url('https://api.iconify.design/cryptocurrency/aave.svg');
+   vertical-align: -0.125em;
+}
+.lc:after {
+  content: url('https://api.iconify.design/cryptocurrency/ltc.svg');
+   vertical-align: -0.125em;
+}
+.background-test {
+   display: inline-block;
+   width: 1em;
+   height: 1em;
+   vertical-align: -0.125em;
+   background: url('https://api.iconify.design/bi/bell-fill.svg') no-repeat
+       center center / contain;
+}
+      </style>
+
+
+
+ <!-- Page Content  -->
+
+      <div id="content-page" class="content-page">
+         <div class="container-fluid">
+               {% if messages %}
+            {% for message in messages %}
+                      <div class="col-lg-12 alert alert-primary alert-dismissible fade show">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="color:black">&times;</span>
+                                        </button> <strong>{{message}}</strong></div>
+
+					        {% endfor %}
+        {% endif %}
+            <div class="row">
+            	 <div class="col-md-6 col-lg-3">
+                    <a href="/client_list">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-primary rounded">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-primary rounded shadow" data-wow-delay="0.2s">
+                                 <i class="las la-users"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Total Clients</h6>
+                                 <h3 class="text-white">{{client.count}}</h3>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                    </a>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-success rounded">
+                        <a href="/dep_trx">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-danger rounded shadow" data-wow-delay="0.2s">
+                                 <i class="fa fa-money"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Total Deposit</h6>
+                                 <h3 class="text-white">{{deposit.count}}</h3>
+                              </div>
+                           </div>
+                        </div>
+                        </a>
+                     </div>
+
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-warning rounded">
+                        <a href="/with_pen_trx">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-success rounded shadow" data-wow-delay="0.2s">
+                                 <i class="ri-money-dollar-circle-line"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Pending Withdrawal</h6>
+                                 <h3 class="text-white">{{pending_withdrawals}}</h3>
+                              </div>
+                           </div>
+                        </div>
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-danger rounded">
+                        <a href="/dep_pen_trx">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-danger rounded shadow" data-wow-delay="0.2s">
+                                 <i class="ri-money-dollar-circle-fill"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Pending Deposit</h6>
+                                 <h3 class="text-white">{{pending_deposit}}</h3>
+                              </div>
+                           </div>
+                        </div>
+                        </a>
+                     </div>
+                  </div>
+                 <div class="col-md-6 col-lg-3">
+                    <a href="/kyc_verified">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-primary mr-3"> <i class="ri-user-follow-fill"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">{{kyc_verified}}</h2>
+                                 <p class="mb-0 line-height pr-3">KYC Completed</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                       </a>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <a href="/kyc_under_review">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-warning mr-3"> <i class="ri-user-2-line"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">{{kyc_under_review}} </h2>
+                                 <p class="mb-0 line-height pr-3"> KYC Under Review</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     </a>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <a href="/kyc_unverified">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-info mr-3"> <i class="ri-user-unfollow-line"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">{{kyc_unverified}}</h2>
+                                 <p class="mb-0 line-height pr-3">Unverified</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     </a>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <a href="/active_users">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-body p-0">
+                           <div class="social-media-block d-flex w-100">
+                              <div class="iq-card-icon bg-danger mr-3"> <i class="ri-account-box-line"></i></div>
+                              <div class="data-block d-flex align-items-center justify-content-between">
+                                 <h2 class="line-height">{{active_user_count}}</h2>
+                                 <p class="mb-0 line-height pr-3">Active Users</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     </a>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Recent Withdrawals</h4>
+                           </div>
+                           <div class="iq-card-header-toolbar d-flex align-items-center">
+                              <div class="dropdown">
+                                 <span class="dropdown-toggle" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false" role="button">
+                                 <i class="ri-more-fill"></i>
+                                 </span>
+                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1" style="">
+
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="iq-card-body">
+                           <ul class="suggestions-lists m-0 p-0">
+                              {% for recent_withdrawal in recent_withdrawal %}
+                              <li class="d-flex mb-4 align-items-center">
+                                 {% if recent_withdrawal.status == "Successful" %}
+                                 <div class="profile-icon iq-bg-primary"><span><i class="ri-check-fill"></i></span></div>
+
+                                 {% elif recent_withdrawal.status == "pending" %}
+                                 <div class="profile-icon iq-bg-warning"><span><i class="ri-alert-line"></i></span></div>
+                                  {% elif recent_withdrawal.status == "failed" %}
+                                 <div class="profile-icon iq-bg-danger"><span><i class="ri-close-line"></i></span></div>
+                                 {% endif %}
+                                 <div class="media-support-info ml-3">
+                                    <h6>{{recent_withdrawal.account}}</h6>
+
+                                    <p class="mb-0"><span class="text-primary"></span>{{recent_withdrawal.status}}</p>
+                                 </div>
+                                 <div class="media-support-amount ml-3">
+                                    <h6><span class="text-secondary"></span><b> {{recent_withdrawal.amount}}</b></h6>
+                                    <p class="mb-0">{{recent_withdrawal.date}}</p>
+                                 </div>
+                              </li>
+                              {% endfor %}
+
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-md-8">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Payment History</h4>
+                           </div>
+                           <div class="iq-card-header-toolbar d-flex align-items-center">
+                              <div class="dropdown">
+                                 <span class="dropdown-toggle" id="dropdownMenuButton4" data-toggle="dropdown">
+                                 <i class="ri-more-fill"></i>
+                                 </span>
+                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton4" style="">
+
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="iq-card-body">
+                           <ul class="suggestions-lists m-0 p-0">
+                              {% for payment_history in payment_history %}
+                              <li class="d-flex mb-4 align-items-center">
+                                 {% if payment_history.payment_method == "BTC" %}
+                                 <div class="profile-icon bg-warning"><span><i class="fa fa-bitcoin"></i></span></div>
+                                  {% elif payment_history.payment_method == "XRP" %}
+                                 <div class="profile-icon bg-secondary"><span><i class='xr'></i></span></div>
+                                   {% elif payment_history.payment_method == "ETH" %}
+                                 <div class="profile-icon bg-primary"><span><i class='pseudo-test'></i></span></div>
+                                 {% elif payment_history.payment_method == "USDT" %}
+                                 <div class="profile-icon bg-success"><span><i class='us'></i></span></div>
+                                 {% elif payment_history.payment_method == "BNB" %}
+                                 <div class="profile-icon bg-warning"><span><i class='bn'></i></span></div>
+
+                                 {% endif %}
+                                 <div class="media-support-info ml-3">
+                                    <h6>Deposit from {{payment_history.account}} </h6>
+                                    <p class="mb-0">{{payment_history.date}}</p>
+                                 </div>
+                                 <div class="media-support-amount text-center ml-3">
+                                    <h6 class="text-info">{{payment_history.amount}}</h6>
+                                    <p class="mb-0">{{payment_history.status}}</p><span>{{payment_history.payment_method}}</span>
+                                 </div>
+                              </li>
+                              {% endfor %}
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+
+                     </div>
+                  </div>
+                   <div class="col-sm-12">
+                  <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                     <div class="iq-card-header d-flex justify-content-between">
+                        <div class="iq-header-title">
+                           <h4 class="card-title"> Recent Clients</h4>
+                        </div>
+                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                           <div class="dropdown">
+                              <span class="dropdown-toggle" id="dropdownMenuButton2" data-toggle="dropdown">
+                              <i class="ri-more-fill"></i>
+                              </span>
+
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="iq-card-body">
+                        <div class="table-responsive">
+                           <table class="table mb-0 table-borderless">
+                              <thead>
+                                 <tr>
+
+                                    <th scope="col">Profile</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Referred By</th>
+                                    <th scope="col">Date Joined</th>
+                                    <th scope="col">Verification Status</th>
+                                    <th scope="col">Action</th>
+                                 </tr>
+                              </thead>
+                              <tbody>
+                              {% for recent_client in recent_client %}
+                                 <tr>
+
+                                    <td><img src="{{recent_client.profile_pic.url}}" alt="profile" class="img-fluid rounded avatar-40 text-center"></td>
+
+                                    <td>{{recent_client}}</td>
+                                    <td>{{recent_client.recommended_by}}</td>
+
+                                    <td>{{recent_client.date_joined|date}}</td>
+                                    <td>
+                                       {% if recent_client.Verification_status == "Unverified" %}
+                                       <div class="badge badge-pill badge-danger">{{recent_client.Verification_status}}</div>
+                                         {% elif recent_client.Verification_status == "Verified" %}
+                                       <div class="badge badge-pill badge-primary">{{recent_client.Verification_status}}</div>
+                                       {% elif recent_client.Verification_status == "Under Review" %}
+                                       <div class="badge badge-pill badge-warning">{{recent_client.Verification_status}}</div>
+                                       {% endif %}
+                                    </td>
+                                    <td>
+                                       <div class="flex align-items-center list-user-action">
+
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" href="/client_edit/{{recent_client.id}}"><i class="ri-pencil-line"></i></a>
+                                          <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete" href="/client_delete/{{recent_client.id}}/{{recent_client.user.id}}"><i class="ri-delete-bin-line"></i></a>
+                                       </div>
+                                    </td>
+                                 </tr>
+                                 {% endfor %}
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+      <!-- Wrapper END -->
+
+
+{% endblock content %}

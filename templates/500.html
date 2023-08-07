@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+   <!-- Start Breadcrumb
+    ============================================= -->
+    <div class="breadcrumb-area text-center shadow dark text-light bg-cover" style="background-image: url(assets/img/banner/23.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1>Error Page</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li class="active">500</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumb -->
+
+    <!-- Start 404
+    ============================================= -->
+    <div class="error-page-area relative text-center" style="background-image: url({% static 'pages/assets/img/shape/1.jpg' %});">
+        <div class="container">
+            <div class="error-box default-padding">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h1>500</h1>
+                        <h2>Oops! Something went wrong !</h2>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End 404 -->
+
+{% endblock content %}

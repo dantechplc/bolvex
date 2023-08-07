@@ -1,0 +1,149 @@
+{% extends 'ds/base.html' %}
+{% load static %}
+{% block content %}
+ <style>
+    	.bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:active, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover {
+    color: #383a59;
+}
+		.eth:after {
+   content: url('https://api.iconify.design/fa-solid/home.svg?color=%23ba3329&height=16');
+}
+.pseudo-test:after {
+   content: url('https://api.iconify.design/cryptocurrency/eth.svg');
+   vertical-align: -0.125em;
+}
+.bn:after {
+  content: url('https://api.iconify.design/cryptocurrency/bnb.svg');
+   vertical-align: -0.125em;
+}
+.xr:after {
+  content: url('https://api.iconify.design/cryptocurrency/xrp.svg');
+   vertical-align: -0.125em;
+}
+.us:after {
+  content: url('https://api.iconify.design/cryptocurrency/usdt.svg');
+   vertical-align: -0.125em;
+}
+.av:after {
+  content: url('https://api.iconify.design/cryptocurrency/aave.svg');
+   vertical-align: -0.125em;
+}
+.lc:after {
+  content: url('https://api.iconify.design/cryptocurrency/ltc.svg');
+   vertical-align: -0.125em;
+}
+.background-test {
+   display: inline-block;
+   width: 1em;
+   height: 1em;
+   vertical-align: -0.125em;
+   background: url('https://api.iconify.design/bi/bell-fill.svg') no-repeat
+       center center / contain;
+}
+      </style>
+
+ <!--**********************************
+            Content body start
+        ***********************************-->
+
+        <div id="content-page" class="content-page">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-6 col-lg-12">
+                     <div class="iq-card iq-card-block iq-card-stretch iq-card-height bg-primary rounded">
+                        <div class="iq-card-body">
+                           <div class="d-flex align-items-center justify-content-between">
+                              <div class="icon iq-icon-box rounded iq-bg-primary rounded shadow" data-wow-delay="0.2s">
+                                 <i class="ri-money-dollar-circle-line"></i>
+                              </div>
+                              <div class="iq-text">
+                                 <h6 class="text-white">Available Balance</h6>
+                                 <h3 class="text-white">{{request.user.client_account.main_balance}}</h3>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-sm-12 col-lg-12">
+                    <div class="iq-card">
+                       <div class="iq-card-header d-flex justify-content-between">
+                          <div class="iq-header-title">
+                             <h4 class="card-title">Fund your Account</h4>
+                          </div>
+                       </div>
+                       <div class="iq-card-body">
+                          <p>Select your preferred method of payment</p>
+                          <form   method="post">
+                              {% csrf_token %}
+                             <div class="form-group">
+                                 {{form.payment_method}}
+                             </div>
+
+                             <button type="submit" class="btn btn-primary">Proceed</button>
+
+                          </form>
+                       </div>
+                    </div>
+                  </div>
+
+                 <div class="col-lg-12">
+                        <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                           <div class="iq-card-header d-flex justify-content-between">
+                              <div class="iq-header-title">
+                                 <h4 class="card-title"> Recent Deposit </h4>
+                              </div>
+                           </div>
+                           <div class="iq-card-body">
+                              <div class="table-responsive">
+                                 <table class="table mb-0 table-borderless">
+                                    <thead>
+                                       <tr>
+
+                                          <th scope="col">Transaction_ID</th>
+                                          <th scope="col">Date</th>
+                                          <th scope="col">Amount</th>
+                                          <th scope="col">Status</th>
+
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for transaction in transaction %}
+                                        <tr>
+
+                                            <td>{{transaction.trx_id}}</td>
+
+                                           <td>{{ transaction.date }}</td>
+                            <td><span></span> {{ transaction.amount }}</td>
+                            {% if transaction.status == 'failed' %}
+                                <td><span class="badge badge-danger px-2">{{ transaction.status }}</span></td>
+                            {% elif transaction.status == 'pending' %}
+                                <td><span class="badge badge-warning px-2">{{ transaction.status }}</span></td>
+                            {% elif transaction.status == 'Successful' %}
+                                <td><span class="badge badge-success px-2">{{ transaction.status }}</span></td>
+                            {% elif transaction.status == 'Received' %}
+                                <td><span class="badge badge-success">{{ transaction.status }}</span></td>
+                            {% elif transaction.status == 'Expired' %}
+                                <td><span class="badge badge-danger">{{ transaction.status }}</span></td>
+                            {% else %}
+                                <td><span class="badge badge-info">{{ transaction.status }}</span></td>
+                            {% endif %}
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,62 @@
+{% extends 'boss/base.html' %}
+{% load static %}
+{% block content %}
+
+
+   
+         <!-- Page Content  -->
+         <div id="content-page" class="content-page">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-lg-12">
+                     <div class="iq-card">
+                        <div class="iq-card-body p-0">
+                           
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-12">
+                     <div class="iq-edit-list-data">
+                        <div class="tab-content">
+                           <div class="tab-pane fade active show" id="personal-information" role="tabpanel">
+                              <div class="iq-card">
+                                 <div class="iq-card-header d-flex justify-content-between">
+                                    <div class="iq-header-title">
+                                       <h4 class="card-title">Wallet Edit</h4>
+                                    </div>
+                                 </div>
+                                 <div class="iq-card-body">
+                                    <form method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                       <div class="form-group row align-items-center">
+                                          <div class="col-md-12">
+                                             <div class="profile-img-edit">
+                                                <img style="width:100px;height:100px;" class="profile-pic" src="{{wallet1.wallet_barcode.url}}" alt="Post-pic">
+                                                <div class="p-image">
+                                                   <i class="ri-pencil-line upload-button"></i>
+                                                   <input enctype="multipart/form-data" required name="wallet_qrcode" class="file-upload" type="file" >
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class=" row align-items-center">
+                                          <div class="form-group col-sm-6">
+                                             <label for="fname">Wallet Name:(e.g BTC, ETH)</label>
+                                             <input required name="name" type="text" class="form-control" id="fname" value={{wallet1.wallet_name}} >
+                                          </div>
+                                          <div class="form-group col-sm-6">
+                                            <label for="fname">Wallet Address:</label>
+                                            <input required name="wallet_address" type="text" class="form-control" id="fname" value={{wallet1.wallet_address}} >
+                                         </div>
+                                       </div>
+                                       <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                       
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                          
+
+
+
+{% endblock content %}
