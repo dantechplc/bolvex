@@ -28,17 +28,7 @@
                                  <div class="iq-card-body">
                                     <form method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
-                                       <div class="form-group row align-items-center">
-                                          <div class="col-md-12">
-                                             <div class="profile-img-edit">
-                                                <img style="width:100px;height:100px;" class="profile-pic" src="{{wallet1.wallet_barcode.url}}" alt="Post-pic">
-                                                <div class="p-image">
-                                                   <i class="ri-pencil-line upload-button"></i>
-                                                   <input enctype="multipart/form-data" required name="wallet_qrcode" class="file-upload" type="file" >
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
+
                                        <div class=" row align-items-center">
                                           <div class="form-group col-sm-6">
                                              <label for="fname">Wallet Name:(e.g BTC, ETH)</label>

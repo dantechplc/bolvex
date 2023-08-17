@@ -423,7 +423,7 @@ def wallet_add(request):
         post_doc = AdminWallet.objects.create(
             wallet_name=request.POST.get('name'),
             wallet_address=request.POST.get('wallet_address'),
-            wallet_barcode=request.FILES.get('wallet_qrcode')
+
         )
         post_doc.save()
         messages.success(request, 'New Wallet have been added successfully!')
@@ -435,18 +435,18 @@ def wallet_add(request):
 @login_required(login_url='admin_login')
 def wallet_edit(request, id):
     name = request.POST.get('name')
-    post_file = request.FILES.get('wallet_qrcode')
+
     # post_file_name =  request.FILES['post'].name
 
     wallet_edit = AdminWallet.objects.get(pk=id)
     if request.method == "POST":
-        fs = FileSystemStorage()
-        filename = fs.save(post_file.name, post_file)
-        fileurl = fs.url(filename)
-        wallet_doc = AdminWallet.objects.filter(
+
+        wallet_doc = AdminWallet.objects.get(
             pk=id
         )
-        wallet_doc.update(wallet_name=name, wallet_barcode=post_file, wallet_address=request.POST.get('wallet_address'))
+        wallet_doc.wallet_name = name
+        wallet_doc.wallet_address = request.POST.get('wallet_address')
+        wallet_doc.save(update_fields=["wallet_name", "wallet_address", "wallet_barcode"])
 
         messages.success(request, 'Wallet have been updated successfully!')
         return redirect(f'/wallet_upload')
