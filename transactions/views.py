@@ -474,27 +474,6 @@ class Inv_upgrade(TransactionCreateMixin):
         self.investment_id = kwargs['id']
         return super().setup(request, *args, **kwargs)
 
-    # def get_context_data(self, **kwargs):
-    #     invest_plan = Invest.objects.filter(account=self.request.user)
-    #     a = Invest.objects.filter(account=self.request.user)
-    #
-    #     q = self.investment_id
-    #     upgrade_plan = a.get(id=q)
-    #     context = super().get_context_data(**kwargs)
-    #     context.update({
-    #
-    #         'time': timezone.now(),
-    #         'plan': upgrade_plan.invest_type,
-    #         'rate': upgrade_plan.rate,
-    #         # 'balance': balance,
-    #         'min_amount': upgrade_plan.min_amount,
-    #         'max_amount': upgrade_plan.max_amount,
-    #         # 'month': g,
-    #         'period_in_days': upgrade_plan.period_in_days,
-    #
-    #     })
-    #
-    #     return context
 
 
 @login_required(login_url='login')

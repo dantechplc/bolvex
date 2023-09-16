@@ -80,6 +80,7 @@ class WithdrawForm(TransactionForm):
             'wallet_id',
             'transaction_type',
             'payment_methods',
+            'wallet_network',
 
         ]
 

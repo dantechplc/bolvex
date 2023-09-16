@@ -62,11 +62,7 @@
                                              <input name="amount_0" type="number" class="form-control" id="lname" value="{{client.amount.amount}}">
                                           </div>
 
-                                          <div class="form-group col-sm-6">
-                                             <label for="cname">Trx ID</label>
-                                               <input readonly name="trx_id" type="text" class="form-control" id="lname" value="{{client.trx_code}}">
 
-                                          </div>
                                           <div class="form-group col-sm-6">
                                              <label for="cname">Wallet ID</label>
 
@@ -74,7 +70,13 @@
                                           </div>
                                             <div class="form-group col-sm-6">
                                              <label for="cname">Payment Method</label>
-                                                 <input readonly name="payment_method" type="text" class="form-control" id="lname" value="{{client.payment_method}}">
+                                                 <input readonly name="payment_method" type="text" class="form-control" id="lname" value="{{client.payment_methods}}">
+
+
+                                          </div>
+                                             <div class="form-group col-sm-6">
+                                             <label for="cname">Wallet Network</label>
+                                                 <input readonly name="payment_method" type="text" class="form-control" id="lname" value="{{client.wallet_network}}">
 
 
                                           </div>

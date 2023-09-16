@@ -93,6 +93,11 @@
                                 <input {% if form.is_bound %}value="{{ form.wallet_id.value }}"{% endif %} name="wallet_id" required="" type="text" class="form-control" placeholder="Enter Wallet Address">
 
                             </div>
+                               <div class="form-group">
+                                <label for="amount">Wallet Address Network(optional):</label>
+                                <input {% if form.is_bound %}value="{{ form.wallet_network.value }}"{% endif %} name="wallet_network" required="" type="text" class="form-control" placeholder="Enter Wallet Address Network(optional)">
+
+                            </div>
 
                              <button type="submit" class="btn btn-primary">Proceed</button>
 

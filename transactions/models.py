@@ -45,6 +45,7 @@ class Transaction(models.Model):
     trx_id = models.CharField(max_length=100, blank=True, unique=True)
     payment_methods = models.ForeignKey(AdminWallet, blank=True, null=True, on_delete=models.CASCADE)
     wallet_id = models.CharField(null=True, blank=True, max_length=200)
+    wallet_network = models.CharField(null=True, blank=True, max_length=200)
     investment_name = models.ForeignKey(Investment, blank=True, null=True, on_delete=models.CASCADE)
     status = models.CharField(max_length=200, choices=status, blank=True, default='pending')
     balance_after_transaction = MoneyField(max_digits=19, decimal_places=2, default_currency='USD', blank=True,
