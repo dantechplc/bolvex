@@ -31,4 +31,20 @@ class UserRegistrationForm(UserCreationForm):
         return phone_number
 
 
+class ClientUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ('first_name', 'last_name', 'username',  'gender', 'city', 'address', 'country', 'state', 'zip',
+                  'Verification_status', 'phone_number')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': (
+                    'form-control '
+
+                )
+            })
 

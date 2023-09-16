@@ -14,6 +14,8 @@ from django.core.mail import BadHeaderError, send_mail, EmailMultiAlternatives
 from accounts.models import Client, User, Account, Investment_profile
 from accounts.forms import UserRegistrationForm, ClientForm, AccountForm, Investment_profile_Form, VerificationForm
 from boss.decorator import allowed_users
+from boss.emailsender import EmailSender
+from boss.forms import ClientUpdateForm
 from boss.models import AdminWallet
 from transactions.models import Transaction
 from accounts.models import *
@@ -207,88 +209,30 @@ def client_list(request):
 
 @login_required(login_url='admin_login')
 def client_edit(request, id):
-    form = ClientForm()
+    form = ClientUpdateForm()
     clients = Client.objects.get(pk=id)
-
-    x = clients.dob
-
-    # # b = x.strftime("%Y-%m-%d")
-    # # print(b)
-    def check_dob(x):
-        if x is None or '':
-            x = clients.date_joined.strftime("%Y-%m-%d")
-            return x
-        elif x:
-            return x.strftime("%Y-%m-%d")
-
-    # veri = Verification.objects.get(user=clients.user)
-
-    users = Client.objects.all()
-
-    if request.method == "POST":
-        client = Client.objects.get(pk=id)
-        form = ClientForm(request.POST, request.FILES, instance=client)
+    if request.method == 'POST':
+        form = ClientUpdateForm(request.POST)
         if form.is_valid():
-
-            client = Client.objects.get(pk=id)
-
-            user = User.objects.get(email=client.user)
-            date_joined = user.date_joined
-            a = Client.objects.filter(user=user)
-            # profile_pic = request.FILES.get('profile_pic')
-            referred_by = request.POST.get('referred_by')
-            username = request.POST.get('username')
-            # if client.profile_pic == {}:
-            #     client.profile_pic.save('profile_pic.png', File(open('static/images/profile1.png', 'rb')))
-            #
-            form.save()
-            b = User.objects.filter(email=client.user)
-            b.update(username=username)
-            gender = request.POST.get('gender')
-            if referred_by == 'None':
-                a.update(username=username, date_joined=date_joined, )
-
-            elif referred_by != 'None':
-                user_referred_by = User.objects.get(email=referred_by)
-                a.update(username=username, date_joined=date_joined, recommended_by=user_referred_by, )
-            if gender != 'None':
-                a.update(gender=gender)
-
-            if request.POST.get('Verification_status') == 'Verified' and client.Verification_status != "Verified":
-                email = client.user
-
-                mail_subject = "VERIFICATION SUCCESSFUL"
-
-                to_email = str(email)
-
-                message1 = render_to_string('boss/verifyemail.html', {
-
-                    'name': client.user.username,
-
-                })
-                # message1 = message
-                email = EmailMultiAlternatives(
-                    mail_subject, message1, to=[to_email]
-                )
-                email.attach_alternative(message1, 'text/html')
-                email.content_subtype = 'html'
-                email.mixed_subtype = 'related'
-
-                email.send()
-            # Client.objects.update(user=client, profile_pic=profile_pic, date_joined=user.date_joined, recommended_by=user_referred_by)
-            # Client.objects.update( date_joined=user.date_joined, recommended_by=user_referred_by)
-
+            if request.POST.get('Verification_status') == "Verified" and clients.Verification_status != "Verified":
+                EmailSender.kyc_verified(email=clients.user, name=clients.username)
+            clients.Verification_status = form.cleaned_data['Verification_status']
+            clients.first_name = form.cleaned_data['first_name']
+            clients.last_name = form.cleaned_data['last_name']
+            clients.username = form.cleaned_data['username']
+            clients.gender = form.cleaned_data['gender']
+            clients.phone_number = form.cleaned_data['phone_number']
+            clients.city = form.cleaned_data['city']
+            clients.state = form.cleaned_data['state']
+            clients.zip = form.cleaned_data['zip']
+            clients.address = form.cleaned_data['address']
+            clients.save(update_fields=['Verification_status', 'first_name', 'last_name', 'gender', 'phone_number',
+                                        'city', 'state', 'address','zip', 'username', ])
             messages.success(request, 'Client info has been edited successfully!')
             return redirect(f'/client_edit/{id}')
-        else:
-            client = Client.objects.get(pk=id)
-            return render(request, 'boss/client_edit.html',
-                          {'client': client, 'form': form, 'users': users, 'x': check_dob(x), 'form': form})
 
-    else:
-        client = Client.objects.get(pk=id)
     return render(request, 'boss/client_edit.html',
-                  {'client': client, 'form': form, 'users': users, 'x': check_dob(x), 'form': form})
+                  {'client': clients, 'form': form, })
 
 
 @login_required(login_url='admin_login')
