@@ -763,7 +763,7 @@ def dep_pro(request, id):
         amount = request.POST.get('amount_0')
         trx_id = request.POST.get('trx_id')
 
-        method = client.payment_method
+        method = client.payment_methods
 
         trx.update(status=request.POST.get('status'),
                    amount=request.POST.get('amount_0'), )
@@ -819,7 +819,7 @@ def with_pro(request, id):
         amount = request.POST.get('amount_0')
         trx_id = request.POST.get('trx_id')
 
-        method = client.payment_method
+        method = client.payment_methods
         trx.update(status=request.POST.get('status'),
                    amount=request.POST.get('amount_0'),
                    hash_id=request.POST.get('hash_id'), )
