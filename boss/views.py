@@ -17,6 +17,7 @@ from boss.decorator import allowed_users
 from boss.emailsender import EmailSender
 from boss.forms import ClientUpdateForm
 from boss.models import AdminWallet
+from pages.models import CompanyProfile
 from transactions.models import Transaction
 from accounts.models import *
 from django.contrib.sessions.models import Session
@@ -755,13 +756,14 @@ def with_pen_trx(request):
 @login_required(login_url='admin_login')
 @allowed_users(allowed_roles=['admin'])
 def dep_pro(request, id):
+    company = CompanyProfile.objects.get(id=settings.COMPANY_ID)
     client = Transaction.objects.get(pk=id)
     if request.method == "POST":
         trx = Transaction.objects.filter(pk=id)
         amount = request.POST.get('amount_0')
         trx_id = request.POST.get('trx_id')
 
-        method = request.POST.get('payment_method')
+        method = client.payment_method
 
         trx.update(status=request.POST.get('status'),
                    amount=request.POST.get('amount_0'), )
@@ -781,8 +783,10 @@ def dep_pro(request, id):
 
             message1 = render_to_string('boss/emaildep.html', {
                 'amount': client.amount,
-                'dep_date': client.timestamp.date,
-                'trx_id': trx_id,
+                'dep_date': timezone.now(),
+                'company_address': company.company_address,
+                'company_phone': company.company_phone,
+                'company_email': company.company_support_email,
                 'method': method,
                 'name': client.account.user.username,
 
@@ -808,13 +812,14 @@ def dep_pro(request, id):
 @login_required(login_url='admin_login')
 @allowed_users(allowed_roles=['admin'])
 def with_pro(request, id):
+    company = CompanyProfile.objects.get(id=settings.COMPANY_ID)
     client = Transaction.objects.get(pk=id)
     if request.method == "POST":
         trx = Transaction.objects.filter(pk=id)
         amount = request.POST.get('amount_0')
         trx_id = request.POST.get('trx_id')
 
-        method = request.POST.get('payment_method')
+        method = client.payment_method
         trx.update(status=request.POST.get('status'),
                    amount=request.POST.get('amount_0'),
                    hash_id=request.POST.get('hash_id'), )
@@ -834,11 +839,12 @@ def with_pro(request, id):
 
             message1 = render_to_string('boss/emailwith.html', {
                 'amount': client.amount,
-                'with_date': client.timestamp.date,
-                'trx_id': trx_id,
+                'with_date': timezone.now(),
                 'method': method,
-                'hash_id': request.POST.get('hash_id'),
                 'name': client.account.user.username,
+                'company_address': company.company_address,
+                'company_phone': company.company_phone,
+                'company_email': company.company_support_email,
 
             })
             # message1 = message
