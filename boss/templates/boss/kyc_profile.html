@@ -89,24 +89,8 @@
 
                                              </select>
 
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label for="cname">City:</label>
-                                             <input readonly required name="city" type="text" class="form-control" id="cname" value="{{client.city}}">
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label for="uname">State:</label>
-                                             <input readonly required name="username" type="text" class="form-control" id="uname" value="{{client.state}}">
-                                          </div>
-                                          <div class="form-group col-sm-6">
-                                             <label>Country</label>
-                                             <input readonly name="country" required value="{{client.country.name}}" type="text" class="form-control" id="mobno">
-                                          </div>
 
-                                          <div class="form-group col-sm-6">
-                                             <label>Zip Code</label>
-                                             <input readonly type="number" name="zip" required value="{{client.zip}}" class="form-control" id="mobno" placeholder="Zip code">
-                                          </div>
+
                                           <div class="form-group col-sm-6">
                                              <label for="dob">Date Of Birth:</label>
                                              <input readonly name="dob" required type="text"  class="form-control" id="dob" value="{{client.dob|date}}" d>
@@ -131,30 +115,17 @@
                                        </div>
                                        <div class="iq-card-body">
 
-                                           {% if  client.id_front_view   %}
+                                           {% if  client.id_view   %}
                                           <img src="{{client.id_front_view.url}}" class="img-fluid" alt="Responsive image">
                                            {% else %}
                                            <img src="" class="img-fluid" alt="No Document Upload">
                                            {% endif %}
                                        </div>
                                     </div>
-                                       <div class="iq-card">
-                                       <div class="iq-card-header d-flex justify-content-between">
-                                          <div class="iq-header-title">
-                                             <h4 class="card-title">Back ID</h4>
-                                          </div>
-                                       </div>
-                                       <div class="iq-card-body">
-                                           {% if client.id_back_view  %}
-                                          <img src="{{client.id_back_view.url}}" class="img-fluid" alt="Responsive image">
-                                           {%  else %}
-                                           <img src="" class="img-fluid" alt="No Document Upload">
-                                           {% endif %}
-                                       </div>
-                                    </div>
+
                                        <button type="submit" class="btn btn-primary mr-2">Save</button>
                                        </div>
-
+                                       </div>
                                     </form>
                                  </div>
                               </div>
