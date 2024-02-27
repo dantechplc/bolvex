@@ -26,19 +26,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                     {% for message in messages %}
-					<p id="messages" style="color:green;">{{message}}</p>
-					{% endfor %}
+
                     <form method="post" id="login-form" class="white-popup-block">
                         {% csrf_token %}
                         <div class="row align-center">
                             <div class="col-lg-4 login-social">
                                 <i class="fas fa-user"></i>
-
-
                             </div>
                             <div class="col-lg-8 login-custom">
                                 <h4>Login to your registered account!</h4>
+                                 {% if messages %}
+                                        {% for message in messages %}
+                                                  <div class="col-lg-12 alert alert-info alert-dismissible fade show">
+                                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="color:black">&times;</span>
+                                                                    </button> <strong>{{message}}</strong></div>
+
+                                                        {% endfor %}
+                                    {% endif %}
                                 <div class="col-lg-12">
                                     <div class="row">
                                         <div class="form-group">
@@ -55,8 +59,10 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="row">
-                                        <label for="login-remember"><input type="checkbox" id="login-remember">Remember Me </label><br>
-                                        <a title="Lost Password" href="/reset_password" class="lost-pass-link"> Lost your password?</a>
+                                        <label for="login-remember"><input type="checkbox" id="login-remember">Remember Me</label>
+                                        <div class="col-md-12">
+                                           <a  href="/reset_password" class="lost-pass-link"> Lost your password?</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">

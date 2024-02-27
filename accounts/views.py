@@ -132,7 +132,7 @@ def loginPage(request):
             return redirect('/boss')
 
         else:
-            messages.warning(request, 'Email or Password is incorrect. Note: Email is case-sensitive')
+            messages.warning(request, 'Email or Password is incorrect.')
 
     context = {}
     return render(request, 'accounts/login.html', context)
