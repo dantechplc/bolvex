@@ -24,7 +24,7 @@ SECRET_KEY = 'po0172$69b@78ps4v^uhfxu6q--8ko7kpp7rbz420s_3w#sir%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', "143.198.100.72", "bolvexcapital.com", "www.bolvexcapital.com"]
+ALLOWED_HOSTS = ['*', "164.92.93.205", "bolvexcapital.com", "www.bolvexcapital.com"]
 
 # Application definition
 
