@@ -64,13 +64,23 @@
                                     <form method="post" enctype="multipart/form-data">
                                        {% csrf_token %}
                                        <div class="form-group row align-items-center">
-
-
-
-
-
                                        </div>
                                        <div class=" row align-items-center">
+                                           <div class="form-group col-sm-6">
+                                             <label>Verification Status:</label>
+                                             <select name="Verification_status" class="form-control" id="exampleFormControlSelect1" >
+                                                {% if client_profile.Verification_status == "Verified" %}
+                                                    <option value="Under Review">Under Review</option>
+                                                    <option value="Unverified">Unverified</option>
+                                                {% elif client_profile.Verification_status == "Unverified" %}
+                                                    <option value="Under Review">Under Review</option>
+                                                    <option value="Verified">Verified</option>
+                                                {% elif client_profile.Verification_status == "Under Review" %}
+                                                   <option value="Verified">Verified</option>
+                                                   <option value="Unverified">Unverified</option>
+                                                {% endif %}
+                                             </select>
+                                          </div>
 
                                           <div class="form-group col-sm-6">
                                              <label for="fname">First Name:</label>
@@ -82,14 +92,8 @@
                                           </div>
                                           <div class="form-group col-sm-6">
                                              <label class="d-block">Gender:</label>
-                                              <select name="gender" required class="form-control" >
-                                                <option value="{{client.gender}}">{{client.gender}}</option>
-
-
-
-                                             </select>
-
-
+                                              <input readonly value="{{client.gender}}" class="form-control">
+                                          </div>
 
                                           <div class="form-group col-sm-6">
                                              <label for="dob">Date Of Birth:</label>
@@ -106,26 +110,24 @@
                                         <div class="form-group col-sm-6">
                                              <label>ID Type</label>
                                           <input readonly class="form-control" value="{{client.Document_type}}">
-                                          </div>
-                                       <div class="iq-card">
-                                       <div class="iq-card-header d-flex justify-content-between">
-                                          <div class="iq-header-title">
-                                             <h4 class="card-title">Front ID</h4>
+                                               <div class="iq-card">
+                                                   <div class="iq-card-header d-flex justify-content-between">
+                                                      <div class="iq-header-title">
+                                                         <h4 class="card-title">Front ID</h4>
+                                                      </div>
+                                                   </div>
+                                                   <div class="iq-card-body">
+
+                                                       {% if  client.id_view   %}
+                                                      <img src="{{client.id_view.url}}" class="img-fluid" alt="Responsive image">
+                                                       {% else %}
+                                                       <img src="" class="img-fluid" alt="No Document Upload">
+                                                       {% endif %}
+                                                   </div>
+                                               </div>
                                           </div>
                                        </div>
-                                       <div class="iq-card-body">
-
-                                           {% if  client.id_view   %}
-                                          <img src="{{client.id_view.url}}" class="img-fluid" alt="Responsive image">
-                                           {% else %}
-                                           <img src="" class="img-fluid" alt="No Document Upload">
-                                           {% endif %}
-                                       </div>
-                                    </div>
-
                                        <button type="submit" class="btn btn-primary mr-2">Save</button>
-                                       </div>
-                                       </div>
                                     </form>
                                  </div>
                               </div>

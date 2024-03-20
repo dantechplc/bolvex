@@ -1,9 +1,8 @@
-MALE = 'M'
-FEMALE = 'F'
+
 
 GENDER_CHOICE = (
-    (MALE, "Male"),
-    (FEMALE, "Female"),
+    ('MALE', "Male"),
+    ('FEMALE', "Female"),
 )
 ID = (
     ('Driver License', 'Driver License'),

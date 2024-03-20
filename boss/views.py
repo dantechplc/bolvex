@@ -337,9 +337,12 @@ def kyc_profile(request, id):
         'form': form,
     }
     if request.method == "POST":
-        messages.success(request, "Verification profile have been updated")
+        client_profile.Verification_status = request.POST.get('Verification_status')
+        client_profile.save(update_fields=['Verification_status'])
+        if client_profile.Verification_status == "Verified":
+            EmailSender.kyc_verified(email=client_profile.user.email, name=client_profile.username)
+            messages.success(request, "Verification profile have been updated")
         return redirect(f'/kyc_profile/{id}')
-
     return render(request, 'boss/kyc_profile.html', context)
 
 
